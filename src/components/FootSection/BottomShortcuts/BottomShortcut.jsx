@@ -1,35 +1,45 @@
-import {Grid, Link,ListItem, ListItemText, Typography } from "@mui/material"
+import {Grid, Link,Stack, Typography } from "@mui/material"
 import { Box} from "@mui/system"
-// import { Link } from "react-router-dom"
 
 export default function BottomShortcut() {
   return (
-    <Box>
-      <Grid container mt={5}>
-          <Grid item xs={4} >
-            <Typography variant="h5" color="initial">Quick links</Typography>
-            <ListItem><ListItemText><Link href="/products" underline="none">Home</Link></ListItemText></ListItem>
-            <ListItem><ListItemText><Link href="/products" underline="none">about</Link></ListItemText></ListItem>
-            <ListItem> <ListItemText><Link href="/products" underline="none">Products</Link></ListItemText></ListItem>
-            <ListItem><ListItemText><Link href="/products" underline="none"> Contact</Link></ListItemText></ListItem>
+      <Grid container mt={8} mb={8} spacing={2} alignItems='center'>
+          <Grid item xs={12} md={3} lg={4} justifyContent='center'>
+          <Stack sx={{alignItems:'center'}}>
+           <ul style={{listStyle:'none' , display:'list-item' , textAlign:'left'}}>
+           <Typography variant="h5" color="initial" fontWeight={600} fontSize={17} marginBottom={1}>Quick links</Typography>
+            <li><Link href="/" underline="none">Home</Link></li>
+            <li><Link href="/about" underline="none">about</Link></li>
+            <li><Link href="/products" underline="none">Products</Link></li>
+            <li><Link href="/contact" underline="none"> Contact</Link></li>
+            </ul>
+            </Stack> 
           </Grid>
-        <Grid item xs={4}>
-            <Typography variant="h5" color="initial">Our products</Typography>
-            <ListItem><ListItemText><Link href="/products" underline="none">Pnuematics</Link></ListItemText></ListItem>
-            <ListItem><ListItemText><Link href="/products" underline="none">Hydraulics</Link></ListItemText></ListItem>
-            <ListItem> <ListItemText><Link href="/products" underline="none">Hand Tools</Link></ListItemText></ListItem>
-            <ListItem><ListItemText><Link href="/products" underline="none"> Trolley Wheels</Link></ListItemText></ListItem>
-            <ListItem><ListItemText><Link href="/products" underline="none"> Cutting & Grinding Tools</Link></ListItemText></ListItem>
+        <Grid  item xs={12} md={3} lg={4} justifyContent='center'>
+        <Stack sx={{alignItems:'center'}}>
+          <ul style={{listStyle:'none' , display:'list-item' , textAlign:'left'}}>
+            <Typography variant="h5" color="initial"fontWeight={600} fontSize={17} marginBottom={1}>Our products</Typography>
+            <li><Link href="/products" underline="none">Pnuematics</Link></li>
+            <li><Link href="/products" underline="none">Hydraulics</Link></li>
+            <li><Link href="/products" underline="none">Hand Tools</Link></li>
+            <li><Link href="/products" underline="none"> Trolley Wheels</Link></li>
+            <li><Link href="/products" underline="none"> Grinding Tools</Link></li>
+            </ul> 
+            </Stack>
         </Grid>
-        <Grid item xs={4}>
-            <Typography variant="h5" color="initial">Featured products</Typography>
-            <ListItem><ListItemText><Link href="/products" underline="none">Coolant Pipes & Lubrication Fittings</Link></ListItemText></ListItem>
-            <ListItem><ListItemText><Link href="/products" underline="none">Belt Bearing</Link></ListItemText></ListItem>
-            <ListItem> <ListItemText><Link href="/products" underline="none">All types of hoses</Link></ListItemText></ListItem>
-            <ListItem><ListItemText><Link href="/products" underline="none"> Measuring Instrument</Link></ListItemText></ListItem>
-            <ListItem><ListItemText><Link href="/products" underline="none"> tiff</Link></ListItemText></ListItem>
+        <Grid  item xs={12} md={3} lg={4} justifyContent='center'>
+        <Stack sx={{alignItems:'center'}}>           
+          <ul style={{listStyle:'none' , display:'list-item' , textAlign:'left'}}>
+            <Typography variant="h5" color="initial" fontWeight={600} fontSize={17} marginBottom={1}>Featured products</Typography>
+            <li><Link href="/products" underline="none">Coolant Pipes</Link></li>
+            <li><Link href="/products" underline="none">Lubrication Fittings</Link></li>
+            <li><Link href="/products" underline="none">Belt Bearing</Link></li>
+            <li><Link href="/products" underline="none">All types of hoses</Link></li>
+            <li><Link href="/products" underline="none"> Measuring Instrument</Link></li>
+            <li><Link href="/products" underline="none"> tiff</Link></li>
+            </ul>
+            </Stack>
         </Grid>
       </Grid>
-    </Box>
   )
 }

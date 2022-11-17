@@ -1,9 +1,10 @@
-import { AppBar, Toolbar, Typography } from "@mui/material";
+import { AppBar, CssBaseline, Toolbar, Typography } from "@mui/material";
+import { Box } from "@mui/system";
 
 export default function Navbar() {
   return (
-    <AppBar>
-          <Toolbar>
+    <AppBar sx={{position:'sticky'}}>
+          <Toolbar sx={{backgroundColor:'#fff' , display:'flex' ,justifyContent:'center' , height : 90}}>
             <Typography
             variant="h6"
             noWrap
@@ -14,7 +15,7 @@ export default function Navbar() {
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 600,
-              color: 'inherit',
+              color: 'initial',
               textDecoration: 'none',
             }}
           >HOME</Typography>
@@ -22,13 +23,13 @@ export default function Navbar() {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            href="/about"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 600,
-              color: 'inherit',
+              color: 'initial',
               textDecoration: 'none',
             }}
           >ABOUT US</Typography>
@@ -36,13 +37,13 @@ export default function Navbar() {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            href="/products"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 600,
-              color: 'inherit',
+              color: 'initial',
               textDecoration: 'none',
             }}
           >PRODUCTS</Typography>
@@ -50,13 +51,13 @@ export default function Navbar() {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            href="/contact"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 600,
-              color: 'inherit',
+              color: 'initial',
               textDecoration: 'none',
             }}
           >CONTACT</Typography>

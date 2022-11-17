@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import React ,{Suspense} from 'react';
 
 const Navbar = React.lazy(()=>import("../Navbar/Navbar"));
@@ -6,12 +7,11 @@ const Searchbox = React.lazy(()=>import("../Searchbox/Searchbox"));
 
 export default function HeadSection() {
   return (
-    <div >
+    <Box>
      <Suspense fallback={<h1>Loading</h1>}>
-        <Icons />
+       <Navbar />
         <Searchbox />
-        <Navbar />
         </Suspense> 
-    </div>
+    </Box>
   )
 }
