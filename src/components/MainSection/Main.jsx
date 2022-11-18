@@ -4,7 +4,6 @@ import CallIcon from '@mui/icons-material/Call';
 import MailIcon from '@mui/icons-material/Mail';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ImageSlider from './Slider';
-import PersonIcon from '@mui/icons-material/Person';
 
 
 const slides = [

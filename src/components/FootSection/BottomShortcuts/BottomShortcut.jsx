@@ -1,4 +1,4 @@
-import {Grid, Link,Stack, Typography } from "@mui/material";
+import {Grid, Link, Typography } from "@mui/material";
 
 export default function BottomShortcut() {
   return (

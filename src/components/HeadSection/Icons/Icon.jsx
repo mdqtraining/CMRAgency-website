@@ -14,7 +14,7 @@ export default function Header() {
       <InstagramIcon className='icon' color='success' fontSize='xs' sx={{marginRight:2}} />
     </Box>
     <Box >
-    <Typography color='#878789' marginRight={3}><span><img style={{verticalAlign:'middle' , width:28}} src="https://img.icons8.com/fluency/48/null/india-circular.png"/>&nbsp;&nbsp;India:/&nbsp;</span>English</Typography>
+    <Typography color='#878789' marginRight={3}><span><img style={{verticalAlign:'middle' , width:28}} alt='img' src="https://img.icons8.com/fluency/48/null/india-circular.png"/>&nbsp;&nbsp;India:/&nbsp;</span>English</Typography>
     </Box>
     </Box>
  )
