@@ -1,10 +1,9 @@
 import { Box, Button, Grid , Container , Typography , CardContent , CardMedia , Card, TextField } from '@mui/material';
-import productInfo from "./ProductInfo";
 import CallIcon from '@mui/icons-material/Call';
 import MailIcon from '@mui/icons-material/Mail';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ImageSlider from './Slider';
-
+import { useEffect, useState } from 'react';
 
 
 const slides = [
@@ -22,13 +21,27 @@ const slides = [
 ]
 
 export default function Main() {
+    
+  const [products , setProducts]=useState([]);
+
+  const fetchData = async () => {
+    const response = await fetch('https://mdqualityapps.in/igreen_tec/fetchallproduct')
+    const data = await response.json()
+    setProducts(data.data)
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, []);
+
   return (
     <Box>
+
         <ImageSlider slides={slides}/>
       <Grid container sx={{width:'100%' , bgcolor:'#efefef'}} mb={20} justifyContent='center' alignItems='center'>
         <Grid item xs={12} sm={12} lg={6}>
             <Typography variant="h4" color="primary" letterSpacing={1} fontWeight={400} margin={3}>About Igreen TECHNOLOGIES</Typography>
-            <Typography variant='subtitle1' color='#222' align='left' lineHeight={2} fontSize={16} marginLeft={3} marginBottom={3}>CMR Agency is one of the leading Distributor and Stockist for all Industrial 
+            <Typography variant='subtitle1' color='#222' align='left' lineHeight={2} fontSize={16} marginLeft={3} marginBottom={3}>
             Utility Companies all over the world are facing increasingly 
             complex and demanding environments not only in terms of 
             fast rollout of their services to new customers but also 
@@ -51,7 +64,7 @@ export default function Main() {
         <Typography variant='h3' align='center' margin={5}>Our Products</Typography>
         <Grid container spacing={1} alignItems='center'>
         {
-          productInfo.map((product , index)=>{
+          products.filter( product => product.productId < 7 ).map((product , index)=>{
             return(
             <Grid item xs={12} sm={6} md={4} key={index}>
             <Card sx={{ maxWidth: 400 , height :400 ,backgroundColor:'#efefef', outline:0 , border:0 , boxShadow:0}} square={true} >
@@ -59,15 +72,15 @@ export default function Main() {
               component="img"
               height="200"
               width="400"
-              image={product.img}
+              image={`https://mdqualityapps.in/igreen_tec/products/${product.productImage}`}
               alt="img"
             />
             <CardContent>
               <Typography variant="h6"  color="##424242" align='left' mb={5} fontWeight="600" fontSize={14}>
-              {product.name}
+              {product.productName}
                 </Typography>
               <Typography variant="body2" color="text.secondary" align='left'>
-                {product.description}
+                {product.productDescription}
               </Typography>
             </CardContent>
           </Card>
@@ -88,16 +101,17 @@ export default function Main() {
        <Grid item xs={12} md={6} lg={4} component='div' sx={{backgroundColor:'#efefef' , display:'block'}}>
            <Box mt={3}>
            <MailIcon sx={{color:'#7EC948'}} fontSize='large' margintop={3} />
-           <Typography variant='body2' color='#212121' fontSize={14} fontWeight={400} marginBottom={5}>info@cmragency</Typography>
+           <Typography variant='body2' color='#212121' fontSize={16} fontWeight={400} marginBottom={5}> production@igreentec.in</Typography>
            </Box>
            <Box mb={10} > 
            <LocationOnIcon sx={{color:'#7EC948'}} fontSize='large' />
            <Typography variant='h6' color='#424242' fontSize={16} fontWeight={600}>CMR AGENCY</Typography>
-           <Typography variant='h6' color='#424242'  fontSize={14}> shop no: 7/4, car street,banglore mani road,sriperumbudur,pin-602105. </Typography>
+           <Typography variant='h6' color='#424242'  fontSize={14}> No:9, Venkatesh Perumal Street, off 8th cross street,
+Ram Nagar (South) Madipakkam, Chennai - 600 091. </Typography>
            </Box>
            <Box>
            <CallIcon sx={{color:'#7EC948'}} fontSize='large' />
-           <Typography variant='body2' color='#212121' fontSize={14} fontWeight={400} marginBottom={10}>+91 73730 42047</Typography>
+           <Typography variant='body2' color='#212121' fontSize={14} fontWeight={400} marginBottom={10}>+91 7505054321</Typography>
            </Box>
        </Grid>
        <Grid item xs={12} md={6} lg={8} component='div' sx={{backgroundColor:'#f7f4f4'}}>
