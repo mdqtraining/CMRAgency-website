@@ -5,7 +5,6 @@ import MailIcon from '@mui/icons-material/Mail';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ImageSlider from './Slider';
 import PersonIcon from '@mui/icons-material/Person';
-import {InputAdornment} from '@mui/material';
 
 
 const slides = [
@@ -120,15 +119,7 @@ export default function Main() {
             id="outlined-end-adornment"
             defaultValue=""
             placeholder='Your Name *'
-             inputProps={
-              {
-              endAdornment : 
-                <InputAdornment position="end">
-                  <PersonIcon />
-                </InputAdornment>
-              }
-              
-             }
+
             
           />
           <TextField
