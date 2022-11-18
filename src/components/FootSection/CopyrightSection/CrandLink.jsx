@@ -8,11 +8,17 @@ import { Box } from '@mui/system';
 
 export default function CrandLink() {
   return (
-    <Grid container sx={{backgroundColor:'#efefef' , width:'100%' , alignItems:'center'}}>
-        <Grid item xs={12} sm={12} md={12} lg={6} mt={4} mb={5}>
-        <Typography color='#5e5e60'>© 2020 CMR Agency All rights reserved</Typography>
+    <Grid container sx={{backgroundColor:'#efefef' , width:'100%' , alignItems:'center', overflowX:'hidden'}}>
+        <Grid item xs={12} sm={12} md={12} lg={12} mt={4} mb={4} display='flex' justifyContent='space-around' className='footer'>
+          <Box className='footer-text'>
+        <Typography sx={{color:'#7EC948'}}>© 2022 Copyright: <Typography variant='span' sx={{color:'#333'}}>Igreen Technologies</Typography></Typography>
+        </Box>
+        <Box>
+            <Typography sx={{color:'#7EC948'}}>Designed By : <Typography variant='span' sx={{color:'#333'}}>MDQuality Apps Solutions</Typography></Typography>
+          </Box>
         </Grid>
-      <Grid item xs={12} sm={12} md={12} lg={6} mt={4} mb={5} sx={{fontSize:14}} className='footer' display='flex' justifyContent='center'>
+        
+      <Grid item xs={12} sm={12} md={12} lg={12} mt={2} mb={5} sx={{fontSize:14}} className='footer' display='flex' justifyContent='center'>
         <Box>
           <Link href="/" underline='none' color='#5e5e60' marginLeft={3} marginRight={2}>Home</Link>
           <Link href="/about" underline='none' color='#5e5e60' marginRight={2}>About Us</Link>

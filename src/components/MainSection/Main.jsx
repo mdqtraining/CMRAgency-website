@@ -6,6 +6,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ImageSlider from './Slider';
 
 
+
 const slides = [
   {
   url:'https://www.cmragency.in/images/main-slider/3.jpg',
@@ -26,16 +27,16 @@ export default function Main() {
         <ImageSlider slides={slides}/>
       <Grid container sx={{width:'100%' , bgcolor:'#efefef'}} mb={20} justifyContent='center' alignItems='center'>
         <Grid item xs={12} sm={12} lg={6}>
-            <Typography variant="h4" color="primary" letterSpacing={1} fontWeight={400} lineHeight={1} margin={3}>About CMR Agency</Typography>
+            <Typography variant="h4" color="primary" letterSpacing={1} fontWeight={400} margin={3}>About Igreen TECHNOLOGIES</Typography>
             <Typography variant='subtitle1' color='#222' align='left' lineHeight={2} fontSize={16} marginLeft={3} marginBottom={3}>CMR Agency is one of the leading Distributor and Stockist for all Industrial 
-          Products across India since 1985. Under the guidance of our founder
-           Mr Chidambaram Ramasamy over 35 years, we are providing best Customer Service. 
-           Presently having Headquarters in Trichy and Branch Office in Sriperumbudhur with 
-           Integrated Warehouse. We deal with Pneumatics, Hydraulics, Hand tools, Power Tools, 
-           Cutting Tools, Measuring Instruments, Trolley Wheels, Adhesives, Abrasives, Brass 
-           Fittings,Hydraulic Fitting and all types of Fittings, Bearings, Rubber Products, E
-           lectrical, Hardware and Consumables etc.</Typography>
-           <Button variant='contained' color='success' sx={{marginBottom:5 , marginTop:2 , width:200 , height:50}}>Read More</Button>
+            Utility Companies all over the world are facing increasingly 
+            complex and demanding environments not only in terms of 
+            fast rollout of their services to new customers but also 
+            providing the services with least disruption to the general
+             public. We at Igreen Technologies are focused in helping utility 
+             companies achieve their objective through trenchless technologies 
+             like Horizontal Direction Drilling (HDD), Pipe Jacking and Augur Boring.</Typography>
+           <Button variant='contained' sx={{marginBottom:5 , marginTop:2 , width:200 , height:50 , bgcolor:'#7EC948'}}>Read More</Button>
         </Grid>
         <Grid item xs={12} sm={12} lg={6}>
           <Box className='maingrid-img' component='img' sx={{width:400 , height:300}} src='https://www.cmragency.in/images/resource/mission.jpg'></Box>
@@ -71,7 +72,7 @@ export default function Main() {
             </CardContent>
           </Card>
           <Box mt={2} mb={5}>
-            <Button variant='contained' color='success'>READ MORE</Button>
+            <Button variant='contained' sx={{bgcolor:'#7EC948'}}>READ MORE</Button>
             </Box>
             </Grid>
             )
@@ -83,19 +84,19 @@ export default function Main() {
 
 
 
-        <Grid container>
+        <Grid container sx={{width:'100%'}}>
        <Grid item xs={12} md={6} lg={4} component='div' sx={{backgroundColor:'#efefef' , display:'block'}}>
            <Box mt={3}>
-           <MailIcon color='success' fontSize='large' margintop={3} />
+           <MailIcon sx={{color:'#7EC948'}} fontSize='large' margintop={3} />
            <Typography variant='body2' color='#212121' fontSize={14} fontWeight={400} marginBottom={5}>info@cmragency</Typography>
            </Box>
            <Box mb={10} > 
-           <LocationOnIcon color='success' fontSize='large' />
+           <LocationOnIcon sx={{color:'#7EC948'}} fontSize='large' />
            <Typography variant='h6' color='#424242' fontSize={16} fontWeight={600}>CMR AGENCY</Typography>
            <Typography variant='h6' color='#424242'  fontSize={14}> shop no: 7/4, car street,banglore mani road,sriperumbudur,pin-602105. </Typography>
            </Box>
            <Box>
-           <CallIcon color='success' fontSize='large' />
+           <CallIcon sx={{color:'#7EC948'}} fontSize='large' />
            <Typography variant='body2' color='#212121' fontSize={14} fontWeight={400} marginBottom={10}>+91 73730 42047</Typography>
            </Box>
        </Grid>
@@ -144,7 +145,7 @@ export default function Main() {
       </div> 
     </Box>
           <Box mt={5} mb={2}>
-            <Button variant='contained' color='success' sx={{width:200 , height:50}}>GET A QUOTE</Button>
+            <Button variant='contained' sx={{width:200 , height:50, bgcolor:'#7EC948'}}>GET A QUOTE</Button>
             </Box>
        </Grid>
        </Grid>

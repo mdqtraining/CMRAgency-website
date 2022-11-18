@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Typography } from "@mui/material";
 
 export default function Navbar() {
   return (
-    <AppBar sx={{position:'sticky' , width:'100%'}}>
+    <AppBar sx={{position:'sticky',width:'100%', zIndex:1}}>
           <Toolbar sx={{backgroundColor:'#fff' , display:'flex' ,justifyContent:'center'}}>
             <Typography
             variant="h6"

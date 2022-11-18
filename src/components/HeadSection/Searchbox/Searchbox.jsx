@@ -7,7 +7,7 @@ export default function Searchbox() {
   return (
       <Grid container spacing={2} alignItems='center' rowSpacing={2} mb={2}>
         <Grid item xs={12} sm={12} lg={2}>
-            <Box component='img' marginRight={5} src="https://www.igreentechnologies.in/img/logo.jpg" alt="logo" 
+            <Box component='img' marginRight={5} src="https://igreentec.in/img/facilities/LOGO.png" alt="logo" 
             sx={{width:120 , height:100 }}>
           </Box>
           </Grid>
@@ -21,13 +21,13 @@ export default function Searchbox() {
             variant='outlined'
             placeholder='Search any products *'
           />
-        <Button variant='contained' color='success' sx={{height:40}}>Search</Button>
+        <Button variant='contained' sx={{height:40 , bgcolor:'#7EC948' }}>Search</Button>
         </Box>
         </Grid>
         <Grid item xs={12} sm={12} lg={4}>
         <Box>
-        <CallIcon color='success' fontSize='xs' sx={{verticalAlign:'middle'}} ></CallIcon><Typography component='span' fontSize='small' marginRight={2}> +91 7505054321</Typography>
-        <MailIcon color='success' fontSize='xs' sx={{verticalAlign:'middle'}}></MailIcon><Typography component='span' fontSize='small'> production@igreentec.in</Typography>
+        <CallIcon  fontSize='xs' sx={{verticalAlign:'middle' ,color:'#7EC948' }} ></CallIcon><Typography component='span' fontSize='small' marginRight={2}> +91 7505054321</Typography>
+        <MailIcon  fontSize='xs' sx={{verticalAlign:'middle' , color:'#7EC948' }}></MailIcon><Typography component='span' fontSize='small'> production@igreentec.in</Typography>
         </Box>
         </Grid>
       </Grid>

@@ -8,10 +8,10 @@ export default function Header() {
   return (
     <Box className='top-icon' sx={{display:'flex' , justifyContent:'flex-end'}}mt={3}>
       <Box marginRight={3}>
-      <FacebookIcon className='icon' color='success' fontSize='xs' sx={{marginRight:2}}/>
-      <TwitterIcon className='icon' color='success' fontSize='xs' sx={{marginRight:2}}/>
-      <LinkedInIcon className='icon' color='success' fontSize='xs' sx={{marginRight:2}} />
-      <InstagramIcon className='icon' color='success' fontSize='xs' sx={{marginRight:2}} />
+      <FacebookIcon className='icon'  fontSize='xs' sx={{marginRight:2 , color:'#7EC948' }}/>
+      <TwitterIcon className='icon'  fontSize='xs' sx={{marginRight:2 , color:'#7EC948' }}/>
+      <LinkedInIcon className='icon' fontSize='xs' sx={{marginRight:2 , color:'#7EC948' }} />
+      <InstagramIcon className='icon'fontSize='xs' sx={{marginRight:2, color:'#7EC948' }} />
     </Box>
     <Box >
     <Typography color='#878789' marginRight={3}><span><img style={{verticalAlign:'middle' , width:28}} alt='img' src="https://img.icons8.com/fluency/48/null/india-circular.png"/>&nbsp;&nbsp;India:/&nbsp;</span>English</Typography>
