@@ -7,6 +7,7 @@ import ImageSlider from './Slider';
 import PersonIcon from '@mui/icons-material/Person';
 import {InputAdornment} from '@mui/material';
 
+
 const slides = [
   {
   url:'https://www.cmragency.in/images/main-slider/3.jpg',
@@ -25,10 +26,10 @@ export default function Main() {
   return (
     <Box>
         <ImageSlider slides={slides}/>
-      <Grid container sx={{width:'100%' , bgcolor:'#efefef'}} mb={20}>
-        <Grid item xs={12} lg={6}>
+      <Grid container sx={{width:'100%' , bgcolor:'#efefef'}} mb={20} justifyContent='center' alignItems='center'>
+        <Grid item xs={12} sm={12} lg={6}>
             <Typography variant="h4" color="primary" letterSpacing={1} fontWeight={400} lineHeight={1} margin={3}>About CMR Agency</Typography>
-            <Typography variant='body2' color='#222' align='left' lineHeight={2} fontSize={18} marginLeft={3} marginBottom={3}>CMR Agency is one of the leading Distributor and Stockist for all Industrial 
+            <Typography variant='subtitle1' color='#222' align='left' lineHeight={2} fontSize={16} marginLeft={3} marginBottom={3}>CMR Agency is one of the leading Distributor and Stockist for all Industrial 
           Products across India since 1985. Under the guidance of our founder
            Mr Chidambaram Ramasamy over 35 years, we are providing best Customer Service. 
            Presently having Headquarters in Trichy and Branch Office in Sriperumbudhur with 
@@ -38,8 +39,8 @@ export default function Main() {
            lectrical, Hardware and Consumables etc.</Typography>
            <Button variant='contained' color='success' sx={{marginBottom:5 , marginTop:2 , width:200 , height:50}}>Read More</Button>
         </Grid>
-        <Grid item xs={12} lg={6}>
-          <Box component='img' sx={{width:400 , height:300}} src='https://www.cmragency.in/images/resource/mission.jpg'></Box>
+        <Grid item xs={12} sm={12} lg={6}>
+          <Box className='maingrid-img' component='img' sx={{width:400 , height:300}} src='https://www.cmragency.in/images/resource/mission.jpg'></Box>
         </Grid>
       </Grid>
 

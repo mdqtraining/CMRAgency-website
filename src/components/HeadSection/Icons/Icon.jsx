@@ -6,7 +6,7 @@ import { Box, Typography } from '@mui/material';
 
 export default function Header() {
   return (
-    <Box sx={{display:'flex' , justifyContent:'flex-end'}}mt={3}>
+    <Box className='top-icon' sx={{display:'flex' , justifyContent:'flex-end'}}mt={3}>
       <Box marginRight={3}>
       <FacebookIcon className='icon' color='success' fontSize='xs' sx={{marginRight:2}}/>
       <TwitterIcon className='icon' color='success' fontSize='xs' sx={{marginRight:2}}/>

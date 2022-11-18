@@ -3,16 +3,16 @@ import { Box } from "@mui/system";
 
 export default function Navbar() {
   return (
-    <AppBar sx={{position:'sticky'}}>
-          <Toolbar sx={{backgroundColor:'#fff' , display:'flex' ,justifyContent:'center' , height : 90}}>
+    <AppBar sx={{position:'sticky' , width:'100%'}}>
+          <Toolbar sx={{backgroundColor:'#fff' , display:'flex' ,justifyContent:'center'}}>
             <Typography
             variant="h6"
-            noWrap
             component="a"
             href="/"
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' },
+              fontSize:{xs:17 , md:19},
+              display: { xs: 'flex', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 600,
               color: 'initial',
@@ -21,12 +21,12 @@ export default function Navbar() {
           >HOME</Typography>
             <Typography
             variant="h6"
-            noWrap
             component="a"
             href="/about"
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' },
+              fontSize:{xs:17 , md:19},
+              display: { xs: 'flex', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 600,
               color: 'initial',
@@ -35,12 +35,12 @@ export default function Navbar() {
           >ABOUT US</Typography>
             <Typography
             variant="h6"
-            noWrap
             component="a"
             href="/products"
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' },
+              fontSize:{xs:17 , md:19},
+              display: { xs: 'flex', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 600,
               color: 'initial',
@@ -49,12 +49,12 @@ export default function Navbar() {
           >PRODUCTS</Typography>
             <Typography
             variant="h6"
-            noWrap
             component="a"
             href="/contact"
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' },
+              fontSize:{xs:17 , md:19},
+              display: { xs: 'flex', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 600,
               color: 'initial',

@@ -2,7 +2,7 @@ import { Box, Container} from "@mui/system";
 import { useState } from "react";
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
-import { Button, Typography } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 
 const ImageSlider = ({ slides }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -22,7 +22,8 @@ const ImageSlider = ({ slides }) => {
 
     return (
         <Container>
-      <Box sx={{width:'100%' , position:'relative' , height:400}}>
+      <Grid container sx={{width:'100%' , position:'relative'}}>
+        <Grid item xs={12} sm={12} lg={12}>
         <Box>
           <Box onClick={goToPrevious} sx={{position:'absolute' , top:'50%', left:'2%' , zIndex:1}} >
            <ArrowCircleLeftIcon fontSize="large" color="success"/>
@@ -31,10 +32,10 @@ const ImageSlider = ({ slides }) => {
             <ArrowCircleRightIcon fontSize="large"color="success" />
           </Box>
         </Box>
-        <Box sx={{ width:'100%', height:400 ,backgroundSize:'cover' , backgroundPosition:'center', backgroundImage:`url(${slides[currentIndex].url})`}}>
-            <Box component='div' sx={{width:500 , bgcolor:'#ffff' , position :'absolute' , top:'30%' , left:'10%'}}>
-                <Typography variant="h5" fontFamily={600} color='initial' marginTop={2}>{slides[currentIndex].title}</Typography>
-                <Button variant="contained" sx={{margin:5}}>Read More</Button>
+        <Box  sx={{ width:'100%', height:350 ,backgroundSize:'cover' , backgroundPosition:'center', backgroundImage:`url(${slides[currentIndex].url})`}}>
+            <Box className='sliderbox' component='div' sx={{width:500 , bgcolor:'#ffff' , position :'absolute' , top:'30%' , left:'10%'}}>
+                <Typography className="slidetext" variant="h5" fontFamily={600} color='initial' marginTop={2}>{slides[currentIndex].title}</Typography>
+                <Button className="btn" variant="contained" sx={{margin:5}}>Read More</Button>
             </Box>
         </Box>
         <Box sx={{display:'flex' , justifyContent:'center'}}>
@@ -48,7 +49,8 @@ const ImageSlider = ({ slides }) => {
             </Box>
           ))}
         </Box>
-      </Box>
+        </Grid>
+      </Grid>
       </Container>
     );
   };
