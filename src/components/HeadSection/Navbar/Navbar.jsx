@@ -32,7 +32,7 @@ export default function Navbar() {
               color: 'initial',
               textDecoration: 'none',
             }}
-          >ABOUT US</Typography>
+          >ABOUT</Typography>
             <Typography
             variant="h6"
             component="a"
