@@ -4,13 +4,13 @@ import { AppBar, Toolbar, Typography } from "@mui/material";
 export default function Navbar() {
   return (
     <AppBar sx={{position:'sticky',width:'100%', zIndex:1}}>
-          <Toolbar sx={{backgroundColor:'#fff' , display:'flex' ,justifyContent:'center'}}>
+          <Toolbar sx={{backgroundColor:'#fff' , display:'flex' ,justifyContent:'center' , height:80}}>
             <Typography
             variant="h6"
             component="a"
             href="/"
             sx={{
-              mr: 2,
+              mr:{xs:2 , sm:2 ,md:2 , lg:4},
               fontSize:{xs:17 , md:19},
               display: { xs: 'flex', md: 'flex' },
               fontFamily: 'monospace',
@@ -24,7 +24,7 @@ export default function Navbar() {
             component="a"
             href="/about"
             sx={{
-              mr: 2,
+              mr:{xs:2 , sm:2 ,md:2 , lg:4},
               fontSize:{xs:17 , md:19},
               display: { xs: 'flex', md: 'flex' },
               fontFamily: 'monospace',
@@ -38,7 +38,7 @@ export default function Navbar() {
             component="a"
             href="/products"
             sx={{
-              mr: 2,
+              mr:{xs:2 , sm:2 ,md:2 , lg:4},
               fontSize:{xs:17 , md:19},
               display: { xs: 'flex', md: 'flex' },
               fontFamily: 'monospace',
@@ -52,7 +52,7 @@ export default function Navbar() {
             component="a"
             href="/contact"
             sx={{
-              mr: 2,
+              mr:{xs:2 , sm:2 ,md:2 , lg:4},
               fontSize:{xs:17 , md:19},
               display: { xs: 'flex', md: 'flex' },
               fontFamily: 'monospace',

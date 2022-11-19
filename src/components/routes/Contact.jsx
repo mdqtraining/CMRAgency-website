@@ -1,7 +1,7 @@
 import Header from "../HeadSection/Header/Header";
 import Footer from '../FootSection/Footer/Footer';
 import Navbar from '../HeadSection/Navbar/Navbar';
-import { Button, Grid, TextField, Typography } from "@mui/material";
+import { Button, Divider, Grid, TextField, Typography } from "@mui/material";
 import { Box, Container, Stack } from "@mui/system";
 
 const location = {
@@ -37,7 +37,8 @@ export default function Contact () {
           <Stack
         component="form"
         sx={{
-          width: '80ch'
+          width: '80ch',
+          marginBottom:5
         }}
         spacing={2}
         noValidate
@@ -93,12 +94,13 @@ export default function Contact () {
             <Typography variant="h6" sx={{color:'#4db6ac', fontSize:25}} mb={3}>Address</Typography>
             <Typography variant="subtitle1" lineHeight={2}>No:9, Venkatesh Perumal Street, 8th cross street, Ram Nagar (South) Madipakkam, Chennai - 600 091.</Typography>
           </Box>
-          <Box>
-           
+          <Box mt={4} bgcolor='#e9e7e7' width={400} padding={2} marginLeft={5}>
+            <Typography variant="h6" sx={{color:'#616161', fontSize:20}}>Our Location</Typography>
+          <iframe width="350" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=400&amp;height=250&amp;hl=en&amp;q=No:9,%20Venkatesh%20Perumal%20Street,%20off%208th%20cross%20street,%20Ram%20Nagar%20Chennai+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href='https://maps-generator.com/'></a>
           </Box>
         </Grid>
       </Grid>
-
+      <Divider  />
       <Footer />
     </div>
   )
