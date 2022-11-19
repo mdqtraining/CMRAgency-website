@@ -39,7 +39,7 @@ export default function Main() {
         <Box bgcolor='#ffff'>
         <ImageSlider slides={slides}/>
         </Box>
-      <Grid container sx={{width:'100%' , bgcolor:'#efefef'}} mb={20} justifyContent='center' alignItems='center'>
+      <Grid container sx={{width:'100%' , bgcolor:'#efefef'}} mb={15} justifyContent='center' alignItems='center'>
         <Grid item xs={12} sm={12} lg={6}>
             <Typography variant="h4" letterSpacing={1} fontWeight={400} margin={3} sx={{color:'#7EC948'}}>About Igreen TECHNOLOGIES</Typography>
             <Typography variant='subtitle1' color='#222' align='left' lineHeight={2} fontSize={16} marginLeft={3} marginBottom={3}>
@@ -62,7 +62,7 @@ export default function Main() {
 
       <Container>
       <Box>
-        <Typography variant='h3' align='center' margin={5}>Our Products</Typography>
+        <Typography variant='h3' align='center' marginBottom={5}>Our Products</Typography>
         <Grid container spacing={1} alignItems='center'>
         {
           products.filter( product => product.productId > 5 && product.productId <12 ).map((product , index)=>{
