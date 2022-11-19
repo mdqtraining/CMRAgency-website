@@ -8,15 +8,15 @@ import { useEffect, useState } from 'react';
 
 const slides = [
   {
-  url:'https://www.cmragency.in/images/main-slider/3.jpg',
-  title : "Experienced in Jacking Solution",
+  url:'https://c1.wallpaperflare.com/preview/214/902/402/milling-cutters-end-mill-milling-machining.jpg',
+  title : "Primary Quality Drilling Experience",
   },
   {
-  url:'https://www.cmragency.in/images/main-slider/2.jpg',
-  title :'One Stop Solution For All Industrial Need'
+  url:'https://c1.wallpaperflare.com/preview/154/726/555/drill-milling-milling-machine-drilling.jpg',
+  title :'Tools with High Precision'
   },{
-  url:'https://www.cmragency.in/images/main-slider/1.jpg',
-  title :'Best Featuring Store for Torqing Solution' 
+  url:'https://c4.wallpaperflare.com/wallpaper/658/696/12/cnc-drill-drilling-machine-wallpaper-preview.jpg',
+  title :'Superior Performance' 
   },
 ]
 
@@ -35,12 +35,13 @@ export default function Main() {
   }, []);
 
   return (
-    <Box>
-
+    <Box  bgcolor='#cfd8dc'>
+        <Box bgcolor='#ffff'>
         <ImageSlider slides={slides}/>
+        </Box>
       <Grid container sx={{width:'100%' , bgcolor:'#efefef'}} mb={20} justifyContent='center' alignItems='center'>
         <Grid item xs={12} sm={12} lg={6}>
-            <Typography variant="h4" color="primary" letterSpacing={1} fontWeight={400} margin={3}>About Igreen TECHNOLOGIES</Typography>
+            <Typography variant="h4" letterSpacing={1} fontWeight={400} margin={3} sx={{color:'#7EC948'}}>About Igreen TECHNOLOGIES</Typography>
             <Typography variant='subtitle1' color='#222' align='left' lineHeight={2} fontSize={16} marginLeft={3} marginBottom={3}>
             Utility Companies all over the world are facing increasingly 
             complex and demanding environments not only in terms of 
@@ -52,7 +53,7 @@ export default function Main() {
            <Button variant='contained' sx={{marginBottom:5 , marginTop:2 , width:200 , height:50 , bgcolor:'#7EC948'}}>Read More</Button>
         </Grid>
         <Grid item xs={12} sm={12} lg={6}>
-          <Box className='maingrid-img' component='img' sx={{width:400 , height:300}} src='https://www.cmragency.in/images/resource/mission.jpg'></Box>
+          <Box className='maingrid-img' component='img' sx={{width:400 , height:300}} src='https://mdqualityapps.in/igreen_tec/products/drill_bits-1668585188.jpg'></Box>
         </Grid>
       </Grid>
 
@@ -64,10 +65,10 @@ export default function Main() {
         <Typography variant='h3' align='center' margin={5}>Our Products</Typography>
         <Grid container spacing={1} alignItems='center'>
         {
-          products.filter( product => product.productId < 7 ).map((product , index)=>{
+          products.filter( product => product.productId > 5 && product.productId <12 ).map((product , index)=>{
             return(
             <Grid item xs={12} sm={6} md={4} key={index}>
-            <Card sx={{ maxWidth: 400 , height :400 ,backgroundColor:'#efefef', outline:0 , border:0 , boxShadow:0}} square={true} >
+            <Card sx={{ maxWidth: 400 , height :400 ,backgroundColor:'#efefef', outline:0 , border:0 , boxShadow:0 , ":hover":{boxShadow:5}}} square={true} >
              <CardMedia
               component="img"
               height="200"
@@ -85,7 +86,7 @@ export default function Main() {
             </CardContent>
           </Card>
           <Box mt={2} mb={5}>
-            <Button variant='contained' sx={{bgcolor:'#7EC948'}}>READ MORE</Button>
+            <Button variant='contained' sx={{bgcolor:'#7EC948'}}>Add To Cart</Button>
             </Box>
             </Grid>
             )
@@ -105,7 +106,7 @@ export default function Main() {
            </Box>
            <Box mb={10} > 
            <LocationOnIcon sx={{color:'#7EC948'}} fontSize='large' />
-           <Typography variant='h6' color='#424242' fontSize={16} fontWeight={600}>CMR AGENCY</Typography>
+           <Typography variant='h6' color='#424242' fontSize={16} fontWeight={600}>Igreen Tec</Typography>
            <Typography variant='h6' color='#424242'  fontSize={14}> No:9, Venkatesh Perumal Street, off 8th cross street,
 Ram Nagar (South) Madipakkam, Chennai - 600 091. </Typography>
            </Box>

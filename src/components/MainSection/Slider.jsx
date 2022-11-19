@@ -21,7 +21,7 @@ const ImageSlider = ({ slides }) => {
     };
 
     return (
-        <Container >
+        <Container sx={{height:350}} >
       <Grid container sx={{width:'100%' , position:'relative'}}>
         <Grid item xs={12} sm={12} lg={12}>
         <Box>
@@ -32,7 +32,7 @@ const ImageSlider = ({ slides }) => {
             <ArrowCircleRightIcon fontSize="large" sx={{color:'#ffff' }} />
           </Box>
         </Box>
-        <Box  sx={{ width:'100%', height:350 ,backgroundSize:'cover' , backgroundPosition:'center', backgroundImage:`url(${slides[currentIndex].url})`}}>
+        <Box sx={{ width:'100%', height:350 ,backgroundSize:'cover',backgroundPosition:'center', backgroundImage:`url(${slides[currentIndex].url})`}}>
             <Box className='sliderbox' component='div' sx={{width:500 , bgcolor:'#ffff' , position :'absolute' , top:'30%' , left:'10%'}}>
                 <Typography className="slidetext" variant="h5" fontFamily={600} color='initial' marginTop={2}>{slides[currentIndex].title}</Typography>
                 <Button className="btn" variant="contained" sx={{margin:5 , bgcolor:'#7EC948' }}>Read More</Button>

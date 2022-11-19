@@ -7,8 +7,8 @@ export default function Searchbox() {
   return (
       <Grid container spacing={2} alignItems='center' rowSpacing={2} mb={2}>
         <Grid item xs={12} sm={12} lg={2}>
-            <Box component='img' marginRight={5} src="https://igreentec.in/img/facilities/LOGO.png" alt="logo" 
-            sx={{width:120 , height:100 }}>
+            <Box component='img' marginRight={5} marginLeft={2} src="https://igreentec.in/img/facilities/LOGO.png" alt="logo" 
+            sx={{width:150 , height:100 }}>
           </Box>
           </Grid>
           <Grid item xs={12} sm={12} lg={6}>
