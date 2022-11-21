@@ -1,7 +1,7 @@
 import Header from "../HeadSection/Header/Header";
 import Footer from '../FootSection/Footer/Footer';
 import Navbar from '../HeadSection/Navbar/Navbar';
-import { Button, Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Button, Card, CardContent, CardMedia, Divider, Grid, Typography } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import { useContext } from "react";
 import { ProductsCotext } from "../../context/productsContext";
@@ -66,7 +66,7 @@ export default function Products() {
       </Grid>
       </Box>
       </Container>
-
+  <Divider />
       <Footer />
     </Box>
   )
