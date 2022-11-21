@@ -3,7 +3,8 @@ import CallIcon from '@mui/icons-material/Call';
 import MailIcon from '@mui/icons-material/Mail';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ImageSlider from './Slider';
-import { useEffect, useState } from 'react';
+import { useContext} from 'react';
+import { ProductsCotext } from '../../context/productsContext';
 
 
 const slides = [
@@ -21,18 +22,8 @@ const slides = [
 ]
 
 export default function Main() {
-    
-  const [products , setProducts]=useState([]);
 
-  const fetchData = async () => {
-    const response = await fetch('https://mdqualityapps.in/igreen_tec/fetchallproduct')
-    const data = await response.json()
-    setProducts(data.data)
-  }
-
-  useEffect(() => {
-    fetchData()
-  }, []);
+  const gProducts = useContext(ProductsCotext);
 
   return (
     <Box  bgcolor='#cfd8dc'>
@@ -63,12 +54,13 @@ export default function Main() {
       <Container>
       <Box>
         <Typography variant='h3' align='center' marginBottom={5}>Our Products</Typography>
-        <Grid container spacing={1} alignItems='center'>
+        <Grid container spacing={2} alignItems='center'>
         {
-          products.filter( product => product.productId > 5 && product.productId <12 ).map((product , index)=>{
+          gProducts.filter( product => product.productId > 5 && product.productId <12 ).map((product , index)=>{
             return(
-            <Grid item xs={12} sm={6} md={4} key={index}>
-            <Card sx={{ maxWidth: 400 , height :400 ,backgroundColor:'#efefef', outline:0 , border:0 , boxShadow:0 , ":hover":{boxShadow:5}}} square={true} >
+            <Grid item xs={12} sm={4} md={4} lg={4} key={index}>
+            <Box position='relative'>
+            <Card sx={{ maxWidth: 400 , height :420 ,backgroundColor:'#efefef', outline:0 , border:0 , boxShadow:0 , ":hover":{boxShadow:5}}} square={true} >
              <CardMedia
               component="img"
               height="200"
@@ -85,8 +77,9 @@ export default function Main() {
               </Typography>
             </CardContent>
           </Card>
-          <Box mt={2} mb={5}>
-            <Button variant='contained' sx={{bgcolor:'#7EC948'}}>Add To Cart</Button>
+          <Box mt={3} mb={5} >
+            <Button variant='contained'sx={{ width:200 , bgcolor:'#333' , position:'absolute' , top:'88%' , left:'20%' , opacity:0.5 , ":hover":{opacity:1 , bgcolor:'#7EC948'} }}>Add To Cart</Button>
+            </Box>
             </Box>
             </Grid>
             )

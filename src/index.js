@@ -5,13 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { StyledEngineProvider } from '@mui/material';
+import { ProductsProvider } from './context/productsContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
   <StyledEngineProvider injectFirst>
+    <ProductsProvider>
     <App />
+    </ProductsProvider>
     </StyledEngineProvider>
     </BrowserRouter>
   </React.StrictMode>

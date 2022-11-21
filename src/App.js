@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes , Route } from 'react-router-dom';
 
-import React, { Suspense }  from 'react';
+import React, {Suspense}  from 'react';
 
 const Home = React.lazy(()=>import("./components/routes/Home"));
 const About = React.lazy(()=>import("./components/routes/About"));
@@ -10,8 +10,10 @@ const Contact = React.lazy(()=>import("./components/routes/Contact"));
 
 
 
-
 function App() {
+ 
+
+
   return (
     <div className="App">
       <Suspense fallback={<h1>Loading...</h1>}>

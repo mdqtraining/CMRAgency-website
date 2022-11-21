@@ -90,7 +90,7 @@ export default function Contact () {
           </Box>
           <Box mt={4} bgcolor='#e9e7e7' width={400} padding={2} marginLeft={5} className="map-box">
             <Typography variant="h6" sx={{color:'#616161', fontSize:20}}>Our Location</Typography>
-          <iframe className="map" width="350" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" src="https://maps.google.com/maps?width=400&amp;height=250&amp;hl=en&amp;q=No:9,%20Venkatesh%20Perumal%20Street,%20off%208th%20cross%20street,%20Ram%20Nagar%20Chennai+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href='https://maps-generator.com/'></a>
+          <iframe className="map" width="350" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" id="gmap_canvas" title="map" src="https://maps.google.com/maps?width=400&amp;height=250&amp;hl=en&amp;q=No:9,%20Venkatesh%20Perumal%20Street,%20off%208th%20cross%20street,%20Ram%20Nagar%20Chennai+()&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
           </Box>
         </Grid>
       </Grid>

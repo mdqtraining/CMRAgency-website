@@ -33,7 +33,7 @@ export default function About() {
       <Container>
         <Grid container sx={{width:'100%' , position:'relative'}}>
           <Grid item xs={12} sm={12} lg={12}>
-        <Box sx={{ width:'100%', height:400 , textAlign:'left' ,backgroundSize:'cover',backgroundPosition:'center', backgroundImage:`url(${'https://images.pexels.com/photos/47091/drill-milling-milling-machine-drilling-47091.jpeg?auto=compress&cs=tinysrgb&w=600'})`}}>
+        <Box className='firstlayout-img' sx={{ width:'100%', height:400 , textAlign:'left' ,backgroundSize:'cover',backgroundPosition:'center', backgroundImage:`url(${'https://images.pexels.com/photos/47091/drill-milling-milling-machine-drilling-47091.jpeg?auto=compress&cs=tinysrgb&w=600'})`}}>
             <Box className='aboutbox' component='div' paddingLeft={2} sx={{width:500 , bgcolor:'#ffff' , position :'absolute' , top:'30%' , left:'10%'}}>
                 <Typography className="abouttext" variant="h5" fontFamily={600} margin={2} sx={{color:'#009688'}}>Company</Typography>
                 <Typography className="abouttext" variant="subititle1" fontFamily={400} color='initial' lineHeight={2} sx={{color:'##7EC948'}}>We deliver high quality equipment such as with FMC Seal,Plungers,Chinese Fingers,Drill Bits,Tri Cone Bits ,D-Shackle,Bow Shackle ,Rock Reamers,HDD Hole Opener ,Drilling Pilots and modern machinery for ide range of purpose</Typography>
