@@ -1,8 +1,7 @@
 import './App.css';
 import { Routes , Route } from 'react-router-dom';
-
 import React, {Suspense}  from 'react';
-
+import Spinner from './components/spinner/Spinner';
 const Home = React.lazy(()=>import("./components/routes/Home"));
 const About = React.lazy(()=>import("./components/routes/About"));
 const Proudcts = React.lazy(()=>import("./components/routes/Products"));
@@ -16,7 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<h1><Spinner /></h1>}>
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='about' element={<About />}></Route>
