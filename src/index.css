@@ -57,6 +57,15 @@
     height: 200px;
     top: 20%;
   }
+  .address-box{
+     width: 80%;
+  }
+  .map-box{
+    width: 80%;
+   }
+   .map{
+    width: 250px;
+   }
 }
 @media only screen and (max-width: 900px) {
   .bottomlink{
