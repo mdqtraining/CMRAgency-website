@@ -6,15 +6,15 @@ export default function Navbar() {
   return (
     <AppBar sx={{position:'sticky',width:'100%', zIndex:1}}>
           <Toolbar sx={{backgroundColor:'#fff', height:80}}>
-           <Grid container display='flex' justifyContent='center' >
-            <Grid item xs={10} sm={10} md={10} lg={10}   sx={{display:'flex' , justifyContent:'center'}}>
+           <Grid container display='flex' justifyContent='center'>
+            <Grid item xs={9} sm={9} md={9} lg={10}   sx={{display:'flex' , justifyContent:'center'}}>
             <Typography
             variant="h6"
             component="a"
             href="/"
             sx={{
               mr:{xs:2 , sm:2 ,md:2 , lg:4},
-              ml:2,
+              ml:{xs:5 , sm:5 , md:5},
               fontSize:{xs:17 , md:19},
               display: { xs: 'flex', md: 'flex' },
               fontFamily: 'monospace',
@@ -67,7 +67,7 @@ export default function Navbar() {
           >CONTACT</Typography>
             </Grid>
             
-            <Grid item xs={2} sm={2} md={2} lg={2}>
+            <Grid item xs={3} sm={3} md={3} lg={2}>
             <Box display='flex' justifyContent='flex-end'>
           <Typography
             variant="h6"
@@ -75,7 +75,6 @@ export default function Navbar() {
             href="/checkout"
             sx={{
               mr:{xs:2 , sm:2 ,md:2 , lg:0},
-              ml:{xs:2 , sm:2 , md:2},
               fontSize:{xs:17 , md:19},
               display: { xs: 'flex', md: 'flex'},
               fontFamily: 'monospace',
@@ -83,7 +82,7 @@ export default function Navbar() {
               textDecoration: 'none',
             }}
           >
-          <ShoppingCartIcon fontSize="large" sx={{color:'#7EC948'}} />
+          <ShoppingCartIcon fontSize="large" sx={{color:'#7EC948'}}/>
           </Typography>
           </Box>
           </Grid>
