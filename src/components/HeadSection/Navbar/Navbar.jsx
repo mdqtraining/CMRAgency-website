@@ -1,16 +1,20 @@
-import { AppBar, Toolbar, Typography } from "@mui/material";
-
+import { AppBar, Grid, Toolbar, Typography } from "@mui/material";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Box } from "@mui/system";
 
 export default function Navbar() {
   return (
     <AppBar sx={{position:'sticky',width:'100%', zIndex:1}}>
-          <Toolbar sx={{backgroundColor:'#fff' , display:'flex' ,justifyContent:'center' , height:80}}>
+          <Toolbar sx={{backgroundColor:'#fff', height:80}}>
+           <Grid container display='flex' justifyContent='center' >
+            <Grid item xs={10} sm={10} md={10} lg={10}   sx={{display:'flex' , justifyContent:'center'}}>
             <Typography
             variant="h6"
             component="a"
             href="/"
             sx={{
               mr:{xs:2 , sm:2 ,md:2 , lg:4},
+              ml:2,
               fontSize:{xs:17 , md:19},
               display: { xs: 'flex', md: 'flex' },
               fontFamily: 'monospace',
@@ -61,6 +65,29 @@ export default function Navbar() {
               textDecoration: 'none',
             }}
           >CONTACT</Typography>
+            </Grid>
+            
+            <Grid item xs={2} sm={2} md={2} lg={2}>
+            <Box display='flex' justifyContent='flex-end'>
+          <Typography
+            variant="h6"
+            component="a"
+            href="/checkout"
+            sx={{
+              mr:{xs:2 , sm:2 ,md:2 , lg:0},
+              ml:{xs:2 , sm:2 , md:2},
+              fontSize:{xs:17 , md:19},
+              display: { xs: 'flex', md: 'flex'},
+              fontFamily: 'monospace',
+              fontWeight: 500,
+              textDecoration: 'none',
+            }}
+          >
+          <ShoppingCartIcon fontSize="large" sx={{color:'#7EC948'}} />
+          </Typography>
+          </Box>
+          </Grid>
+           </Grid>
             </Toolbar>
     </AppBar>
   )

@@ -11,7 +11,7 @@ export default function CrandLink() {
     <Grid container sx={{backgroundColor:'#efefef' , width:'100%' , alignItems:'center', overflowX:'hidden'}}>
         <Grid item xs={12} sm={12} md={12} lg={12} mt={4} mb={4} display='flex' justifyContent='space-around' className='footer'>
           <Box className='footer-text'>
-        <Typography sx={{color:'#7EC948'}}>© 2022 Copyright: <Typography variant='span' sx={{color:'#333'}}>Igreen Technologies</Typography></Typography>
+        <Typography sx={{color:'#7EC948'}}>© {new Date().getFullYear()} Copyright: <Typography variant='span' sx={{color:'#333'}}>Igreen Technologies</Typography></Typography>
         </Box>
         <Box>
             <Typography sx={{color:'#7EC948'}}>Designed By : <Typography variant='span' sx={{color:'#333'}}>MDQuality Apps Solutions</Typography></Typography>
