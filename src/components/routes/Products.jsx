@@ -1,14 +1,17 @@
 import Header from "../HeadSection/Header/Header";
 import Footer from '../FootSection/Footer/Footer';
 import Navbar from '../HeadSection/Navbar/Navbar';
-import { Button, Card, CardContent, CardMedia, Divider, Grid, Typography } from "@mui/material";
+import { Divider, Grid, Typography } from "@mui/material";
 import { Box, Container } from "@mui/system";
 import { useContext } from "react";
-import { ProductsCotext } from "../../context/productsContext";
+import { ProductsContext } from "../../context/productsContext";
+import Productcard from "./ProductPage/Productcard";
 
 export default function Products() {
 
-  const products = useContext(ProductsCotext);
+  const products = useContext(ProductsContext);
+  
+
  
   return (
     <Box>
@@ -37,35 +40,14 @@ export default function Products() {
         <Typography variant='h3' align='center' marginBottom={5} fontWeight={500} sx={{color:'#777777'}}>Our Products</Typography>
         <Grid container spacing={2} alignItems='center'>
         {
-          products.map((product , index)=>{
-            return(
-            <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
-              <Box position='relative'>
-            <Card sx={{ maxWidth: 400 , height :300 ,backgroundColor:'#efefef', outline:0 , border:0 , boxShadow:0 , ":hover":{boxShadow:5}}} square={true} >
-             <CardMedia
-              component="img"
-              height="200"
-              width="400"
-              image={`https://mdqualityapps.in/igreen_tec/products/${product.productImage}`}
-              alt="img"
-            />
-            <CardContent>
-              <Typography variant="h6"  color="##424242" align='center' mb={5} fontWeight="600" fontSize={16}>
-              {product.productName}
-                </Typography>
-            </CardContent>
-          </Card>
-          <Box mt={3} mb={5} >
-            <Button className="addcart-btn" variant='contained'sx={{ width:200 , bgcolor:'#333' , position:'absolute' , top:'85%' , left:'15%' , opacity:0.5 , ":hover":{opacity:1 , bgcolor:'#7EC948'} }}>Add To Cart</Button>
-            </Box>
-            </Box>
-            </Grid>
-            )
-          })
-        }
-      </Grid>
-      </Box>
-      </Container>
+          products.map((product, index)=>(
+        <Productcard product={product} key={index} />
+        
+        ))}
+        </Grid>
+        </Box>
+        </Container>
+
   <Divider />
       <Footer />
     </Box>

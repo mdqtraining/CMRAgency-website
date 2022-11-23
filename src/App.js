@@ -7,7 +7,7 @@ const About = React.lazy(()=>import("./components/routes/About"));
 const Proudcts = React.lazy(()=>import("./components/routes/Products"));
 const Contact = React.lazy(()=>import("./components/routes/Contact"));
 const CheckoutPage = React.lazy(()=>import("./components/routes/CheckoutPage/CheckoutPage"));
-
+const FilledCart = React.lazy(()=>import('./components/routes/CartPreview/FilledCart'));
 
 function App() {
  
@@ -21,6 +21,7 @@ function App() {
         <Route path='about' element={<About />}></Route>
         <Route path='products' element={<Proudcts />}></Route>
         <Route path='contact' element={<Contact />}></Route>
+        <Route path='cartpreview' element={<FilledCart />}></Route>
         <Route path='checkout' element={<CheckoutPage/>}></Route>
       </Routes>
       </Suspense>

@@ -4,7 +4,10 @@ import MailIcon from '@mui/icons-material/Mail';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ImageSlider from './Slider';
 import { useContext} from 'react';
-import { ProductsCotext } from '../../context/productsContext';
+import { ProductsContext } from '../../context/productsContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCartItems } from '../../store/cart/cart.selector';
+import { addItemToCart } from '../../store/cart/cart.action';
 
 
 const slides = [
@@ -23,7 +26,13 @@ const slides = [
 
 export default function Main() {
 
-  const gProducts = useContext(ProductsCotext);
+  const gProducts = useContext(ProductsContext);
+
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
+  const addProductToCart = (product) => {
+      dispatch(addItemToCart(cartItems , product))
+  };
 
   return (
     <Box  bgcolor='#cfd8dc'>
@@ -58,7 +67,7 @@ export default function Main() {
         {
           gProducts.filter( product => product.productId > 5 && product.productId <12 ).map((product , index)=>{
             return(
-            <Grid item xs={12} sm={4} md={4} lg={4} key={index}>
+            <Grid item xs={12} sm={4} md={4} lg={4} key={index}  >
             <Box position='relative'>
             <Card sx={{ maxWidth: 400 , height :420 ,backgroundColor:'#efefef', outline:0 , border:0 , boxShadow:0 , ":hover":{boxShadow:5}}} square={true} >
              <CardMedia
@@ -78,7 +87,7 @@ export default function Main() {
             </CardContent>
           </Card>
           <Box mt={3} mb={5} >
-            <Button variant='contained'sx={{ width:200 , bgcolor:'#333' , position:'absolute' , top:'88%' , left:'20%' , opacity:0.5 , ":hover":{opacity:1 , bgcolor:'#7EC948'} }}>Add To Cart</Button>
+            <Button onClick={()=>addProductToCart(product)} variant='contained'sx={{ width:200 , bgcolor:'#333' , position:'absolute' , top:'88%' , left:'20%' , opacity:0.5 , ":hover":{opacity:1 , bgcolor:'#7EC948'} }}>Add To Cart</Button>
             </Box>
             </Box>
             </Grid>

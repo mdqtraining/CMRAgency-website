@@ -1,8 +1,13 @@
-import { AppBar, Grid, Toolbar, Typography } from "@mui/material";
+import { AppBar, Badge, Grid, IconButton, Toolbar, Typography } from "@mui/material";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Box } from "@mui/system";
+import { useSelector } from "react-redux";
+import { selectCartCount } from "../../../store/cart/cart.selector";
 
 export default function Navbar() {
+
+  const count = useSelector(selectCartCount);
+
   return (
     <AppBar sx={{position:'sticky',width:'100%', zIndex:1}}>
           <Toolbar sx={{backgroundColor:'#fff', height:80}}>
@@ -15,7 +20,7 @@ export default function Navbar() {
             sx={{
               mr:{xs:2 , sm:2 ,md:2 , lg:4},
               ml:{xs:5 , sm:5 , md:5},
-              fontSize:{xs:17 , md:19},
+              fontSize:{xs:16 , md:19},
               display: { xs: 'flex', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 600,
@@ -29,7 +34,7 @@ export default function Navbar() {
             href="/about"
             sx={{
               mr:{xs:2 , sm:2 ,md:2 , lg:4},
-              fontSize:{xs:17 , md:19},
+              fontSize:{xs:16 , md:19},
               display: { xs: 'flex', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 600,
@@ -43,7 +48,7 @@ export default function Navbar() {
             href="/products"
             sx={{
               mr:{xs:2 , sm:2 ,md:2 , lg:4},
-              fontSize:{xs:17 , md:19},
+              fontSize:{xs:16 , md:19},
               display: { xs: 'flex', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 600,
@@ -57,7 +62,7 @@ export default function Navbar() {
             href="/contact"
             sx={{
               mr:{xs:2 , sm:2 ,md:2 , lg:4},
-              fontSize:{xs:17 , md:19},
+              fontSize:{xs:16 , md:19},
               display: { xs: 'flex', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 600,
@@ -72,18 +77,22 @@ export default function Navbar() {
           <Typography
             variant="h6"
             component="a"
-            href="/checkout"
+            href="/cartpreview"
             sx={{
               mr:{xs:2 , sm:2 ,md:2 , lg:0},
-              fontSize:{xs:17 , md:19},
+              fontSize:{xs:16 , md:19},
               display: { xs: 'flex', md: 'flex'},
               fontFamily: 'monospace',
               fontWeight: 500,
               textDecoration: 'none',
             }}
           >
-          <ShoppingCartIcon fontSize="large" sx={{color:'#7EC948'}}/>
-          </Typography>
+              <IconButton aria-label="cart">
+                <Badge badgeContent={count} color="secondary">
+                  <ShoppingCartIcon fontSize="normal" sx={{color:'#7EC948'}}/>
+                </Badge>
+              </IconButton>
+              </Typography>
           </Box>
           </Grid>
            </Grid>

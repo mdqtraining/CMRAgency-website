@@ -1,9 +1,9 @@
 import { Typography , Grid , ListItem , List , ListItemText} from "@mui/material";
-import { useContext } from "react";
 import React from "react";
-import { ProductsCotext } from "../../../context/productsContext";
+import { useSelector } from "react-redux";
+import { selectCartItems } from "../../../store/cart/cart.selector";
   
-  const addresses = [''];
+  const addresses = ['12', 'abc','ch', '1234'];
   const payments = [
     { name: 'Card type', detail: 'XXX' },
     { name: 'Card holder', detail: 'XXX' },
@@ -12,20 +12,22 @@ import { ProductsCotext } from "../../../context/productsContext";
   ];
   
   export default function Review() {
-    const products = useContext(ProductsCotext);
+    
+    const products = useSelector(selectCartItems);
+
+
     return (
       <React.Fragment>
         <Typography variant="h6" gutterBottom>
           Order summary
         </Typography>
         <List disablePadding>
-          {products.filter((product)=>product.productID > 5 && product.productID < 12).map((product) => (
-            <ListItem key={product.name} sx={{ py: 1, px: 0 }}>
-              <ListItemText primary={product.productName} secondary={product.productDescription} />
+          {products.map((product, index) => (
+            <ListItem key={index} sx={{ py: 1, px: 0 }}>
+              <ListItemText primary={product.productName} secondary={"Quantity : " + product.quantity} />
               <Typography variant="body2">{product.price}</Typography>
             </ListItem>
           ))}
-  
           <ListItem sx={{ py: 1, px: 0 }}>
             <ListItemText primary="Total" />
             <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>

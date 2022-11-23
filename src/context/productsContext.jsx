@@ -2,7 +2,7 @@ import { createContext } from "react";
 import { useState , useEffect } from "react";
 
 
-export const ProductsCotext = createContext({
+export const ProductsContext = createContext({
     products:[],
 });
 
@@ -24,7 +24,7 @@ export const ProductsProvider = ({children}) =>{
 
 
     return(
-        <ProductsCotext.Provider value={products}>{children}</ProductsCotext.Provider>
+        <ProductsContext.Provider value={products}>{children}</ProductsContext.Provider>
     )
 
 }
