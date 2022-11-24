@@ -9,38 +9,62 @@ import React from "react";
 import { Link } from "react-router-dom";
 
      
+
+
+export default function Checkout() {
+  const [activeStep, setActiveStep] = useState(0);
+
+  const [filledAddressData , setFilledAddressData]=useState([]);
+  const [filledPaymentData , setFilledPaymentData]=useState([]);
+ 
+
+  function filledAData(filedinput){
+    setFilledAddressData((prev) => {
+      return [...prev , filedinput]
+    })
+  }
+  function filledPData(filedinput){
+    setFilledPaymentData((prev) => {
+      return [...prev , filedinput]
+    })
+  }
+
+  const handleNext = (e) => {
+    e.preventDefault();
+    setActiveStep(activeStep + 1);
+  
+  };
+  const onSubmit = (e) => {
+    e.preventDefault();
+  }; 
+
+  const handleBack = (e) => { 
+    e.preventDefault();
+    setActiveStep(activeStep - 1);
+  };
+
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <AddressForm />;
+      return <AddressForm onNext={filledAData} />;
     case 1:
-      return <PaymentForm />;
+      return <PaymentForm onPayment={filledPData} />;
     case 2:
-      return <ReviewPage />;
+      return <ReviewPage payments={filledPaymentData} addresses={filledAddressData} />;
     default:
       throw new Error('Unknown step');
   }
 }
 
 
-export default function Checkout() {
-  const [activeStep, setActiveStep] = useState(0);
-
-  const handleNext = () => {
-    setActiveStep(activeStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep(activeStep - 1);
-  };
-
   return (
     <Box>
       <CssBaseline /> 
      
       <Navbar />
+ 
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
@@ -67,6 +91,7 @@ export default function Checkout() {
             </React.Fragment>
           ) : (
             <React.Fragment>
+              <form onSubmit={onSubmit}>
               {getStepContent(activeStep)}
               <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                 {activeStep !== 0 && (
@@ -74,19 +99,26 @@ export default function Checkout() {
                     Back
                   </Button>
                 )}
-
-                <Button
+                  {activeStep === steps.length - 1 ? (
+                    <Button
+                    variant="contained"
+                    type="submit"
+                    sx={{ mt: 3, ml: 1 }}
+                  >Place Order</Button>
+                  ) : (
+                    <Button
                   variant="contained"
                   onClick={handleNext}
                   sx={{ mt: 3, ml: 1 }}
-                >
-                  {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
-                </Button>
+                >Next</Button>
+                  )}
               </Box>
+              </form>
             </React.Fragment>
           )}
         </Paper>
       </Container>
+
       </Box>
   );
 }

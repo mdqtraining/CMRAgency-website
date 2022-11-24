@@ -3,15 +3,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { selectCartItems } from "../../../store/cart/cart.selector";
   
-  const addresses = ['12', 'abc','ch', '1234'];
-  const payments = [
-    { name: 'Card type', detail: 'XXX' },
-    { name: 'Card holder', detail: 'XXX' },
-    { name: 'Card number', detail: 'XXX' },
-    { name: 'Expiry date', detail: 'XXX' },
-  ];
   
-  export default function Review() {
+  export default function Review(props) {
     
     const products = useSelector(selectCartItems);
 
@@ -40,24 +33,29 @@ import { selectCartItems } from "../../../store/cart/cart.selector";
             <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
               Shipping
             </Typography>
-            <Typography gutterBottom>XXXX</Typography>
-            <Typography gutterBottom>{addresses.join(', ')}</Typography>
+            <Typography gutterBottom>x</Typography>
+            <Typography gutterBottom>{props.addresses.join(', ')}</Typography>
           </Grid>
           <Grid item container direction="column" xs={12} sm={6}>
             <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
               Payment details
             </Typography>
             <Grid container>
-              {payments.map((payment) => (
-                <React.Fragment key={payment.name}>
                   <Grid item xs={6}>
-                    <Typography gutterBottom>{payment.name}</Typography>
+                    <Typography gutterBottom>Card Holder</Typography>
+                    <Typography gutterBottom>Card Number</Typography>
+                    <Typography gutterBottom>Exp Date</Typography>
                   </Grid>
                   <Grid item xs={6}>
-                    <Typography gutterBottom>{payment.detail}</Typography>
-                  </Grid>
-                </React.Fragment>
-              ))}
+                
+                  <React.Fragment >
+                  <Typography gutterBottom>{props.payments.cardName}</Typography>
+                  <Typography gutterBottom>{props.payments.cardNumber}</Typography>
+                  <Typography gutterBottom>{props.payments.expDate}</Typography>
+                  </React.Fragment>
+              
+                    
+              </Grid> 
             </Grid>
           </Grid>
         </Grid>

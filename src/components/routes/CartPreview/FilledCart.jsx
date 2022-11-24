@@ -70,8 +70,8 @@ export default function FilledCart() {
               key={cartItem.productId}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-            <TableCell sx={{width:100 , height:100}} component="img" src={`https://mdqualityapps.in/igreen_tec/products/${cartItem.productImage}`} />
-              <TableCell>{cartItem.productName}</TableCell>
+            <TableCell><img style={{width:80 , height:80}} alt='img' src={`https://mdqualityapps.in/igreen_tec/products/${cartItem.productImage}`}/></TableCell> 
+            <TableCell component='th' scope='row'>{cartItem.productName}</TableCell>
               <TableCell align="right">{cartItem.quantity}</TableCell>
               <TableCell align="right">{cartItems.productPrice}</TableCell>
               <TableCell align="right"><Button onClick={()=>clear(cartItem)}><ClearIcon /></Button></TableCell>
