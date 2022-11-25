@@ -17,7 +17,13 @@ export default function AddressForm(props) {
       const handleChangeAddress = (e) =>{
         const{name , value} = e.target;
         setAddressFormData({...addressFormData, [name]:value});
+        
+      }
+
+      const handleSubmit = (e) =>{
+        e.preventDefault();
         props.onNext(addressFormData);
+        props.handleNext(); 
       }
 
     return (
@@ -25,7 +31,9 @@ export default function AddressForm(props) {
         <Typography variant="h6" gutterBottom>
           Shipping address
         </Typography>
+        <form id='form-step0' onSubmit={handleSubmit}>
         <Grid container spacing={3}>
+
           <Grid item xs={12} sm={6}>
             <TextField
               required
@@ -36,7 +44,7 @@ export default function AddressForm(props) {
               autoComplete="given-name"
               variant="standard"
               onChange={handleChangeAddress}
-              value={addressFormData.firstName}
+              defaultValue={addressFormData.firstName}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -135,6 +143,7 @@ export default function AddressForm(props) {
             />
           </Grid>
         </Grid>
+        </form>
       </React.Fragment>
     );
   }

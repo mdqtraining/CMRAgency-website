@@ -11,48 +11,62 @@ import { Link } from "react-router-dom";
      
 
 
-export default function Checkout() {
+export default function Checkout(props) {
   const [activeStep, setActiveStep] = useState(0);
 
-  const [filledAddressData , setFilledAddressData]=useState([]);
-  const [filledPaymentData , setFilledPaymentData]=useState([]);
- 
-
+  const [filledAddressData , setFilledAddressData]=useState({});
+  const [filledPaymentData , setFilledPaymentData]=useState({});
   function filledAData(filedinput){
-    setFilledAddressData((prev) => {
-      return [...prev , filedinput]
-    })
+    setFilledAddressData(filedinput);
+    
   }
   function filledPData(filedinput){
-    setFilledPaymentData((prev) => {
-      return [...prev , filedinput]
-    })
+    setFilledPaymentData(filedinput);
+  }
+  
+  const handleNext = () => {
+    setActiveStep(activeStep + 1);
   }
 
-  const handleNext = (e) => {
-    e.preventDefault();
-    setActiveStep(activeStep + 1);
-  
+  const placeOrder = () =>{
+      setActiveStep(activeStep + 1);
   };
-  const onSubmit = (e) => {
-    e.preventDefault();
-  }; 
 
-  const handleBack = (e) => { 
-    e.preventDefault();
+
+  const handleBack = () => { 
     setActiveStep(activeStep - 1);
-  };
-
+    if(activeStep === 1){
+      setFilledAddressData({
+        firstName :'',
+        lastName:'',
+        address1:'',
+        address2:'',
+        city:'',
+        state:'',
+        zip:'',
+        country:'',
+      });
+    }
+      else {
+        setFilledPaymentData({
+          cardName:'',
+          cardNumber:'',
+          expDate :'',
+          cvv:'',
+        });
+      }
+    }
+    
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <AddressForm onNext={filledAData} />;
+      return <AddressForm onNext={filledAData} handleNext={handleNext}/>;
     case 1:
-      return <PaymentForm onPayment={filledPData} />;
+      return <PaymentForm onPayment={filledPData} handleNext={handleNext}/>;
     case 2:
-      return <ReviewPage payments={filledPaymentData} addresses={filledAddressData} />;
+      return <ReviewPage payments={filledPaymentData} addresses={filledAddressData}  />;
     default:
       throw new Error('Unknown step');
   }
@@ -91,7 +105,6 @@ function getStepContent(step) {
             </React.Fragment>
           ) : (
             <React.Fragment>
-              <form onSubmit={onSubmit}>
               {getStepContent(activeStep)}
               <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                 {activeStep !== 0 && (
@@ -99,21 +112,21 @@ function getStepContent(step) {
                     Back
                   </Button>
                 )}
+                 
                   {activeStep === steps.length - 1 ? (
-                    <Button
+                     <Button
+                      variant="contained"
+                      sx={{ mt: 3, ml: 1 }}
+                      onClick={placeOrder}
+                      > Place Order</Button>
+                  ) : ( <Button
                     variant="contained"
-                    type="submit"
                     sx={{ mt: 3, ml: 1 }}
-                  >Place Order</Button>
-                  ) : (
-                    <Button
-                  variant="contained"
-                  onClick={handleNext}
-                  sx={{ mt: 3, ml: 1 }}
-                >Next</Button>
-                  )}
+                    type='submit'
+                    form={`form-step${activeStep}`}
+                   >Next</Button>)}
+                
               </Box>
-              </form>
             </React.Fragment>
           )}
         </Paper>

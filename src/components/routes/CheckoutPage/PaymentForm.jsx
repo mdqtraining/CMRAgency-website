@@ -14,7 +14,12 @@ export default function PaymentForm(props) {
   const handleChangePayment = (e) =>{
     const{name , value} = e.target;
     setPaymentFormData({...paymentFormData, [name]:value});
+  }
+
+  const handleSubmit = (e) =>{
+    e.preventDefault();
     props.onPayment(paymentFormData);
+    props.handleNext();
   }
 
 
@@ -23,7 +28,7 @@ export default function PaymentForm(props) {
         <Typography variant="h6" gutterBottom>
           Payment method
         </Typography>
-
+        <form id='form-step1' onSubmit={handleSubmit}>
         <Grid container spacing={3}>
           <Grid item xs={12} md={6}>
             <TextField
@@ -35,7 +40,7 @@ export default function PaymentForm(props) {
               autoComplete="cc-name"
               variant="standard"
               onChange={handleChangePayment}
-              value={paymentFormData.cardName}
+              defaultValue={paymentFormData.cardName}
             />
           </Grid>
           <Grid item xs={12} md={6}>
@@ -85,6 +90,7 @@ export default function PaymentForm(props) {
             />
           </Grid>
         </Grid>
+        </form>
       </React.Fragment>
     );
   }

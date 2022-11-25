@@ -4,10 +4,10 @@ import { useSelector } from "react-redux";
 import { selectCartItems } from "../../../store/cart/cart.selector";
   
   
-  export default function Review(props) {
-    
-    const products = useSelector(selectCartItems);
+  export default function Review({payments, addresses}) {
 
+    const products = useSelector(selectCartItems);
+   
 
     return (
       <React.Fragment>
@@ -33,8 +33,7 @@ import { selectCartItems } from "../../../store/cart/cart.selector";
             <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
               Shipping
             </Typography>
-            <Typography gutterBottom>x</Typography>
-            <Typography gutterBottom>{props.addresses.join(', ')}</Typography>
+            <Typography gutterBottom>{Object.values(addresses).join(' ,')}</Typography>
           </Grid>
           <Grid item container direction="column" xs={12} sm={6}>
             <Typography variant="h6" gutterBottom sx={{ mt: 2 }}>
@@ -47,14 +46,11 @@ import { selectCartItems } from "../../../store/cart/cart.selector";
                     <Typography gutterBottom>Exp Date</Typography>
                   </Grid>
                   <Grid item xs={6}>
-                
-                  <React.Fragment >
-                  <Typography gutterBottom>{props.payments.cardName}</Typography>
-                  <Typography gutterBottom>{props.payments.cardNumber}</Typography>
-                  <Typography gutterBottom>{props.payments.expDate}</Typography>
-                  </React.Fragment>
-              
-                    
+                <React.Fragment >
+                <Typography gutterBottom>{payments.cardName}</Typography>
+                <Typography gutterBottom>{payments.cardNumber}</Typography>
+                <Typography gutterBottom>{payments.expDate}</Typography>
+                </React.Fragment>
               </Grid> 
             </Grid>
           </Grid>
