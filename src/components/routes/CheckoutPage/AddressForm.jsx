@@ -44,7 +44,7 @@ export default function AddressForm(props) {
               autoComplete="given-name"
               variant="standard"
               onChange={handleChangeAddress}
-              defaultValue={addressFormData.firstName}
+              Value={addressFormData.firstName}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
