@@ -2,12 +2,13 @@ import { AppBar, Badge, Grid, IconButton, Toolbar, Typography } from "@mui/mater
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Box } from "@mui/system";
 import { useSelector } from "react-redux";
-import { selectCartCount } from "../../../store/cart/cart.selector";
+import { emptyCart, selectCartCount } from "../../../store/cart/cart.selector";
 
 export default function Navbar() {
 
   const count = useSelector(selectCartCount);
 
+  
   return (
     <AppBar sx={{position:'sticky',width:'100%', zIndex:1}}>
           <Toolbar sx={{backgroundColor:'#fff', height:80}}>

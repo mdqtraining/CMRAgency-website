@@ -1,9 +1,17 @@
 import { Typography , Grid , TextField , FormControlLabel, Checkbox} from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import emailjs from '@emailjs/browser';
+
 
 export default function AddressForm(props) {
 
-    const[addressFormData , setAddressFormData] = useState({
+
+
+  const form = useRef();
+  function getFormValues() {
+    const storedValues = localStorage.getItem('addressForm');
+    if (!storedValues)
+      return {
         firstName :'',
         lastName:'',
         address1:'',
@@ -12,18 +20,30 @@ export default function AddressForm(props) {
         state:'',
         zip:'',
         country:'',
-      });
+      };
+    return JSON.parse(storedValues);
+  }
+
+
+    const[addressFormData , setAddressFormData] = useState(getFormValues);
 
       const handleChangeAddress = (e) =>{
         const{name , value} = e.target;
         setAddressFormData({...addressFormData, [name]:value});
+
         
       }
+          useEffect(()=>{
+            localStorage.setItem('addressForm', JSON.stringify(addressFormData));
+          },[addressFormData]);
 
       const handleSubmit = (e) =>{
         e.preventDefault();
         props.onNext(addressFormData);
         props.handleNext(); 
+
+        
+    emailjs.sendForm('service_szodhjv', 'template_ur77ke4', form.current, '0lVH7svAZeBNdlCRA');
       }
 
     return (
@@ -31,7 +51,7 @@ export default function AddressForm(props) {
         <Typography variant="h6" gutterBottom>
           Shipping address
         </Typography>
-        <form id='form-step0' onSubmit={handleSubmit}>
+        <form id='form-step0' onSubmit={handleSubmit} ref={form}>
         <Grid container spacing={3}>
 
           <Grid item xs={12} sm={6}>
@@ -40,11 +60,12 @@ export default function AddressForm(props) {
               id="firstName"
               name="firstName"
               label="First name"
+              type='text'
               fullWidth
               autoComplete="given-name"
               variant="standard"
               onChange={handleChangeAddress}
-              Value={addressFormData.firstName}
+              value={addressFormData.firstName}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -53,6 +74,7 @@ export default function AddressForm(props) {
               id="lastName"
               name="lastName"
               label="Last name"
+              type='text'
               fullWidth
               autoComplete="family-name"
               variant="standard"
@@ -66,6 +88,7 @@ export default function AddressForm(props) {
               id="address1"
               name="address1"
               label="Address line 1"
+              type='text'
               fullWidth
               autoComplete="shipping address-line1"
               variant="standard"
@@ -78,6 +101,7 @@ export default function AddressForm(props) {
               id="address2"
               name="address2"
               label="Address line 2"
+              type='text'
               fullWidth
               autoComplete="shipping address-line2"
               variant="standard"
@@ -91,6 +115,7 @@ export default function AddressForm(props) {
               id="city"
               name="city"
               label="City"
+              type='text'
               fullWidth
               autoComplete="shipping address-level2"
               variant="standard"
@@ -104,6 +129,7 @@ export default function AddressForm(props) {
               id="state"
               name="state"
               label="State/Province/Region"
+              type='text'
               fullWidth
               variant="standard"
               onChange={handleChangeAddress}
@@ -116,6 +142,7 @@ export default function AddressForm(props) {
               id="zip"
               name="zip"
               label="Zip / Postal code"
+              type='number'
               fullWidth
               autoComplete="shipping postal-code"
               variant="standard"
@@ -129,6 +156,7 @@ export default function AddressForm(props) {
               id="country"
               name="country"
               label="Country"
+              type='text'
               fullWidth
               autoComplete="shipping country"
               variant="standard"

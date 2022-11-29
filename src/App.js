@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes , Route } from 'react-router-dom';
-import React, {Suspense}  from 'react';
+import React, {Suspense, useState}  from 'react';
 import Spinner from './components/spinner/Spinner';
 const Home = React.lazy(()=>import("./components/routes/Home"));
 const About = React.lazy(()=>import("./components/routes/About"));
@@ -22,7 +22,7 @@ function App() {
         <Route path='products' element={<Proudcts />}></Route>
         <Route path='contact' element={<Contact />}></Route>
         <Route path='cartpreview' element={<FilledCart />}></Route>
-        <Route path='checkout' element={<CheckoutPage/>}></Route>
+        <Route path='checkout' element={<CheckoutPage />}></Route>
       </Routes>
       </Suspense>
     </div>

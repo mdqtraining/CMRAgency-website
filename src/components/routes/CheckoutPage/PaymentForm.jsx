@@ -1,16 +1,27 @@
 import { Typography , Grid , TextField , FormControlLabel , Checkbox} from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function PaymentForm(props) {
 
-    
-  const[paymentFormData , setPaymentFormData] = useState({
-    cardName:'',
+
+  function getFormValues() {
+    const storedValues = localStorage.getItem('paymentForm');
+    if (!storedValues)
+      return {
+        cardName:'',
     cardNumber:'',
     expDate :'',
     cvv:'',
-  });
+      };
+    return JSON.parse(storedValues);
+  }
+    
+  const[paymentFormData , setPaymentFormData] = useState(getFormValues);
   
+ useEffect(()=>{
+  localStorage.setItem('paymentForm', JSON.stringify(paymentFormData));
+ },[paymentFormData])
+
   const handleChangePayment = (e) =>{
     const{name , value} = e.target;
     setPaymentFormData({...paymentFormData, [name]:value});

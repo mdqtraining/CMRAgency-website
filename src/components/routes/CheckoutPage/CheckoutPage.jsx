@@ -8,14 +8,19 @@ import ReviewPage from './ReviewPage';
 import React from "react";
 import { Link } from "react-router-dom";
 
+
      
 
 
-export default function Checkout(props) {
+export default function Checkout() {
+
+
   const [activeStep, setActiveStep] = useState(0);
 
   const [filledAddressData , setFilledAddressData]=useState({});
   const [filledPaymentData , setFilledPaymentData]=useState({});
+
+
   function filledAData(filedinput){
     setFilledAddressData(filedinput);
     
@@ -30,13 +35,14 @@ export default function Checkout(props) {
 
   const placeOrder = () =>{
       setActiveStep(activeStep + 1);
-  };
+      localStorage.setItem('paymentForm', JSON.stringify({
+        cardName:'',
+    cardNumber:'',
+    expDate :'',
+    cvv:'',
+      }));
 
-
-  const handleBack = () => { 
-    setActiveStep(activeStep - 1);
-    if(activeStep === 1){
-      setFilledAddressData({
+      localStorage.setItem('addressForm', JSON.stringify({
         firstName :'',
         lastName:'',
         address1:'',
@@ -45,16 +51,13 @@ export default function Checkout(props) {
         state:'',
         zip:'',
         country:'',
-      });
-    }
-      else {
-        setFilledPaymentData({
-          cardName:'',
-          cardNumber:'',
-          expDate :'',
-          cvv:'',
-        });
-      }
+      }));
+  };
+
+
+  const handleBack = () => { 
+    setActiveStep(activeStep - 1);
+   
     }
     
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
@@ -77,7 +80,7 @@ function getStepContent(step) {
     <Box>
       <CssBaseline /> 
      
-      <Navbar />
+      <Navbar  />
  
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
@@ -101,7 +104,7 @@ function getStepContent(step) {
                 confirmation, and will send you an update when your order has
                 shipped.
               </Typography>
-              <Button variant="contained" sx={{bgcolor:'#7EC948' , marginTop:5}}><Link to='/' style={{textDecoration:'none' , color:'#333'}}>Go Back Home</Link></Button>
+              <Button  variant="contained" sx={{bgcolor:'#7EC948' , marginTop:5}}><Link to='/' style={{textDecoration:'none' , color:'#333'}}>Go Back Home</Link></Button>
             </React.Fragment>
           ) : (
             <React.Fragment>
