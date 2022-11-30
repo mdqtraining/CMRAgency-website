@@ -14,6 +14,7 @@ export default function AddressForm(props) {
       return {
         firstName :'',
         lastName:'',
+        email:'',
         address1:'',
         address2:'',
         city:'',
@@ -85,6 +86,20 @@ export default function AddressForm(props) {
           <Grid item xs={12}>
             <TextField
               required
+              id="email"
+              name="email"
+              label="email"
+              type='email'
+              fullWidth
+              autoComplete="email"
+              variant="standard"
+              onChange={handleChangeAddress}
+              value={addressFormData.email}
+            />
+            </Grid>
+          <Grid item xs={12}>
+            <TextField
+              required
               id="address1"
               name="address1"
               label="Address line 1"
@@ -142,7 +157,8 @@ export default function AddressForm(props) {
               id="zip"
               name="zip"
               label="Zip / Postal code"
-              type='number'
+              type='tel'
+              inputProps={{pattern:"[0-9]{4,8}"}}
               fullWidth
               autoComplete="shipping postal-code"
               variant="standard"

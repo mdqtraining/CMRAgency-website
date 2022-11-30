@@ -47,6 +47,7 @@ export default function PaymentForm(props) {
               id="cardName"
               name='cardName'
               label="Name on card"
+              type='text'
               fullWidth
               autoComplete="cc-name"
               variant="standard"
@@ -60,6 +61,8 @@ export default function PaymentForm(props) {
               id="cardNumber"
               name = 'cardNumber'
               label="Card number"
+              type='tel'
+              inputProps={{pattern:"[0-9]{13,19}"}}
               fullWidth
               autoComplete="cc-number"
               variant="standard"
@@ -73,6 +76,8 @@ export default function PaymentForm(props) {
               id="expDate"
               name="expDate"
               label="Expiry date"
+              type='date'
+              InputLabelProps={{shrink: true}}
               fullWidth
               autoComplete="cc-exp"
               variant="standard"
@@ -86,6 +91,8 @@ export default function PaymentForm(props) {
               id="cvv"
               name="cvv"
               label="CVV"
+             type='tel'
+             inputProps={{pattern:"[0-9]{3,4}"}}
               helperText="Last three digits on signature strip"
               fullWidth
               autoComplete="cc-csc"

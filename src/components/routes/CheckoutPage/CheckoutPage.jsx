@@ -7,6 +7,8 @@ import PaymentForm from './PaymentForm';
 import ReviewPage from './ReviewPage';
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { emptyCart } from "../../../store/cart/cart.action";
 
 
      
@@ -14,6 +16,11 @@ import { Link } from "react-router-dom";
 
 export default function Checkout() {
 
+
+   
+  const dispatch = useDispatch();
+
+  const GoHomeBtn = (cartItems) => dispatch(emptyCart(cartItems));
 
   const [activeStep, setActiveStep] = useState(0);
 
@@ -45,6 +52,7 @@ export default function Checkout() {
       localStorage.setItem('addressForm', JSON.stringify({
         firstName :'',
         lastName:'',
+        email:'',
         address1:'',
         address2:'',
         city:'',
@@ -104,7 +112,7 @@ function getStepContent(step) {
                 confirmation, and will send you an update when your order has
                 shipped.
               </Typography>
-              <Button  variant="contained" sx={{bgcolor:'#7EC948' , marginTop:5}}><Link to='/' style={{textDecoration:'none' , color:'#333'}}>Go Back Home</Link></Button>
+              <Button onClick={GoHomeBtn}  variant="contained" sx={{bgcolor:'#7EC948' , marginTop:5}}><Link to='/' style={{textDecoration:'none' , color:'#333'}}>Go Back Home</Link></Button>
             </React.Fragment>
           ) : (
             <React.Fragment>

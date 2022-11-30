@@ -3,12 +3,12 @@ import CallIcon from '@mui/icons-material/Call';
 import MailIcon from '@mui/icons-material/Mail';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ImageSlider from './Slider';
-import { useContext} from 'react';
+import { useContext , useRef , useState} from 'react';
 import { ProductsContext } from '../../context/productsContext';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCartItems } from '../../store/cart/cart.selector';
 import { addItemToCart } from '../../store/cart/cart.action';
-
+import emailjs from '@emailjs/browser';
 
 const slides = [
   {
@@ -33,6 +33,32 @@ export default function Main() {
   const addProductToCart = (product) => {
       dispatch(addItemToCart(cartItems , product))
   };
+
+  const [homeForm, setHomeForm]= useState({
+    name :'',
+    email:'',
+    mobileNumber:'',
+    subject:''
+  });
+  const form = useRef();
+
+  function handleChange(e){
+    const{name, value}=e.target;
+    setHomeForm({...homeForm , [name]:value});
+  }
+
+  function sendForm(e){
+    e.preventDefault();
+    emailjs.sendForm('service_szodhjv', 'template_wrdx1fl', form.current, '0lVH7svAZeBNdlCRA');
+
+    setHomeForm({
+      name :'',
+      email:'',
+      mobileNumber:'',
+      subject:''
+    })
+  };
+
 
   return (
     <Box  bgcolor='#cfd8dc'>
@@ -129,40 +155,53 @@ Ram Nagar (South) Madipakkam, Chennai - 600 091. </Typography>
         }}
         noValidate
         autoComplete="off"
+        ref={form}
+        onSubmit={sendForm}
+        id='homeForm'
       >
         <div>
           <TextField
             size='small'
             id="outlined-end-adornment"
-            defaultValue=""
+            name='name'
+            type='text'
             placeholder='Your Name *'
-
-            
+            onChange={handleChange}
+            value={homeForm.name}
           />
           <TextField
-          size='small'
+            size='small'
             id="inputEmail"
-            defaultValue=""
+            name='email'
+            type='email'
             placeholder='Your Email *'
+            onChange={handleChange}
+            value={homeForm.email}
           />
         </div>
         <div>
         <TextField
-        size='small'
+            size='small'
             id="inputMobile"
-            defaultValue=""
+            name='mobileNumber'
+            type='tel'
             placeholder='Mobile Number'
+            onChange={handleChange}
+            value={homeForm.mobileNumber}
           />
         <TextField
-        size='small'
+           size='small'
             id="inputSubject"
-            defaultValue=""
+            name='subject'
+            type='text'
             placeholder='Your Subject'
+            onChange={handleChange}
+            value={homeForm.subject}
           />
       </div> 
     </Box>
           <Box mt={5} mb={2}>
-            <Button variant='contained' sx={{width:200 , height:50, bgcolor:'#7EC948'}}>GET A QUOTE</Button>
+            <Button type='submit' form='homeForm' variant='contained' sx={{width:200 , height:50, bgcolor:'#7EC948'}}>GET A QUOTE</Button>
             </Box>
        </Grid>
        </Grid>

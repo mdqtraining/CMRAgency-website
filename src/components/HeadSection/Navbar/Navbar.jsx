@@ -2,7 +2,7 @@ import { AppBar, Badge, Grid, IconButton, Toolbar, Typography } from "@mui/mater
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Box } from "@mui/system";
 import { useSelector } from "react-redux";
-import { emptyCart, selectCartCount } from "../../../store/cart/cart.selector";
+import { selectCartCount } from "../../../store/cart/cart.selector";
 
 export default function Navbar() {
 

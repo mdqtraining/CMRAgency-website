@@ -12,7 +12,8 @@ import { Box, Button, Grid, Typography } from '@mui/material';
 import ClearIcon from '@mui/icons-material/Clear';
 import { clearItemFromCart } from '../../../store/cart/cart.action';
 import Navbar from '../../HeadSection/Navbar/Navbar';
-
+import {addItemToCart} from '../../../store/cart/cart.action';
+import {removeItemFromCart} from '../../../store/cart/cart.action';
 
 export default function FilledCart() {
 
@@ -20,6 +21,10 @@ export default function FilledCart() {
  const count = useSelector(selectCartCount);
  const dispatch = useDispatch();
  const clear = (cartItem)=> dispatch(clearItemFromCart(cartItems, cartItem ));
+
+  const addItem =(cartItem) => dispatch(addItemToCart(cartItems , cartItem));
+  const removeItem =(cartItem) => dispatch(removeItemFromCart(cartItems, cartItem));
+
 
   return (
     <Box>
@@ -72,7 +77,7 @@ export default function FilledCart() {
             >
             <TableCell><img style={{width:80 , height:80}} alt='img' src={`https://mdqualityapps.in/igreen_tec/products/${cartItem.productImage}`}/></TableCell> 
             <TableCell component='th' scope='row'>{cartItem.productName}</TableCell>
-              <TableCell align="right">{cartItem.quantity}</TableCell>
+              <TableCell align="right"><Button onClick={()=>removeItem(cartItem)}>-</Button>{cartItem.quantity}<Button onClick={()=>addItem(cartItem)}>+</Button></TableCell>
               <TableCell align="right">{cartItems.productPrice}</TableCell>
               <TableCell align="right"><Button onClick={()=>clear(cartItem)}><ClearIcon /></Button></TableCell>
             </TableRow>

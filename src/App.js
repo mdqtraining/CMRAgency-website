@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes , Route } from 'react-router-dom';
-import React, {Suspense, useState}  from 'react';
+import React, {Suspense}  from 'react';
 import Spinner from './components/spinner/Spinner';
 const Home = React.lazy(()=>import("./components/routes/Home"));
 const About = React.lazy(()=>import("./components/routes/About"));
