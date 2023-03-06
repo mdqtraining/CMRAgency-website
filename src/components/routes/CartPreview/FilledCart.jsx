@@ -14,6 +14,7 @@ import { clearItemFromCart } from '../../../store/cart/cart.action';
 import Navbar from '../../HeadSection/Navbar/Navbar';
 import {addItemToCart} from '../../../store/cart/cart.action';
 import {removeItemFromCart} from '../../../store/cart/cart.action';
+import { Link } from 'react-router-dom';
 
 export default function FilledCart() {
 
@@ -52,7 +53,9 @@ export default function FilledCart() {
               </Box>
              <Box padding={10}>
           <Typography variant='h5' mb={3}>Your Cart is Empty</Typography> 
-          <Button variant='container' href='/products' sx={{bgcolor:'#7EC948' , color : '#222', ":hover":{bgcolor:'#29b6f6'}}}>Buy Products</Button>
+          <Link to='/products' style={{textDecoration:'none'}}>
+            <Button variant='container'  sx={{bgcolor:'#7EC948' , color : '#222', ":hover":{bgcolor:'#29b6f6'}}}>Buy Products</Button>
+          </Link>
           </Box>
           </Box>
           

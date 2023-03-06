@@ -2,12 +2,12 @@ import './App.css';
 import { Routes , Route } from 'react-router-dom';
 import React, {Suspense}  from 'react';
 import Spinner from './components/spinner/Spinner';
-const Home = React.lazy(()=>import("./components/routes/Home"));
-const About = React.lazy(()=>import("./components/routes/About"));
-const Proudcts = React.lazy(()=>import("./components/routes/Products"));
-const Contact = React.lazy(()=>import("./components/routes/Contact"));
-const CheckoutPage = React.lazy(()=>import("./components/routes/CheckoutPage/CheckoutPage"));
-const FilledCart = React.lazy(()=>import('./components/routes/CartPreview/FilledCart'));
+import Home from './components/routes/Home';
+import About from './components/routes/About';
+import Proudcts from './components/routes/Products';
+import Contact from './components/routes/Contact';
+import FilledCart from './components/routes/CartPreview/FilledCart.jsx';
+import CheckoutPage from './components/routes/CheckoutPage/CheckoutPage';
 
 function App() {
  

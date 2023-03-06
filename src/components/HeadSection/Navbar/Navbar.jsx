@@ -3,6 +3,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Box } from "@mui/system";
 import { useSelector } from "react-redux";
 import { selectCartCount } from "../../../store/cart/cart.selector";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
 
@@ -14,10 +15,9 @@ export default function Navbar() {
           <Toolbar sx={{backgroundColor:'#fff', height:80}}>
            <Grid container display='flex' justifyContent='center'>
             <Grid item xs={9} sm={9} md={9} lg={10}   sx={{display:'flex' , justifyContent:'center'}}>
+              <Link to='/' style={{textDecoration:'none'}}>
             <Typography
             variant="h6"
-            component="a"
-            href="/"
             sx={{
               mr:{xs:2 , sm:2 ,md:2 , lg:4},
               ml:{xs:5 , sm:5 , md:5},
@@ -26,13 +26,13 @@ export default function Navbar() {
               fontFamily: 'monospace',
               fontWeight: 600,
               color: 'initial',
-              textDecoration: 'none',
             }}
           >HOME</Typography>
+              </Link>
+ 
+            <Link to='/about' style={{textDecoration:'none'}}>
             <Typography
             variant="h6"
-            component="a"
-            href="/about"
             sx={{
               mr:{xs:2 , sm:2 ,md:2 , lg:4},
               fontSize:{xs:16 , md:19},
@@ -43,10 +43,10 @@ export default function Navbar() {
               textDecoration: 'none',
             }}
           >ABOUT</Typography>
+          </Link>
+          <Link to='/products' style={{textDecoration:'none'}}>
             <Typography
             variant="h6"
-            component="a"
-            href="/products"
             sx={{
               mr:{xs:2 , sm:2 ,md:2 , lg:4},
               fontSize:{xs:16 , md:19},
@@ -57,10 +57,10 @@ export default function Navbar() {
               textDecoration: 'none',
             }}
           >PRODUCTS</Typography>
+          </Link>
+          <Link to='/contact' style={{textDecoration:'none'}}>
             <Typography
             variant="h6"
-            component="a"
-            href="/contact"
             sx={{
               mr:{xs:2 , sm:2 ,md:2 , lg:4},
               fontSize:{xs:16 , md:19},
@@ -71,14 +71,14 @@ export default function Navbar() {
               textDecoration: 'none',
             }}
           >CONTACT</Typography>
+          </Link>
             </Grid>
             
             <Grid item xs={3} sm={3} md={3} lg={2}>
             <Box display='flex' justifyContent='flex-end'>
+              <Link to='/cartpreview' style={{textDecoration:'none'}}>
           <Typography
             variant="h6"
-            component="a"
-            href="/cartpreview"
             sx={{
               mr:{xs:2 , sm:2 ,md:2 , lg:0},
               fontSize:{xs:16 , md:19},
@@ -94,6 +94,7 @@ export default function Navbar() {
                 </Badge>
               </IconButton>
               </Typography>
+               </Link>
           </Box>
           </Grid>
            </Grid>

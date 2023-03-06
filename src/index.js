@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { StyledEngineProvider } from '@mui/material';
 import { ProductsProvider } from './context/productsContext';
 import { Provider } from 'react-redux';
@@ -13,17 +13,17 @@ import {store , persistor} from './store/Store';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+     <Router>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-    <BrowserRouter>
   <StyledEngineProvider injectFirst>
     <ProductsProvider>
     <App />
     </ProductsProvider>
     </StyledEngineProvider>
-    </BrowserRouter>
     </PersistGate>
     </Provider>
+    </Router>
   </React.StrictMode>
 );
 

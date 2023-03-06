@@ -2,8 +2,9 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import {Grid, Link, Typography } from '@mui/material';
+import {Grid,Typography } from '@mui/material';
 import { Box } from '@mui/system';
+import { Link } from 'react-router-dom';
 
 
 export default function CrandLink() {
@@ -20,10 +21,10 @@ export default function CrandLink() {
         
       <Grid item xs={12} sm={12} md={12} lg={12} mt={2} mb={5} sx={{fontSize:14}} className='footer' display='flex' justifyContent='center'>
         <Box>
-          <Link href="/" underline='none' color='#5e5e60' marginLeft={3} marginRight={2}>Home</Link>
-          <Link href="/about" underline='none' color='#5e5e60' marginRight={2}>About Us</Link>
-          <Link href="/products" underline='none' color='#5e5e60' marginRight={2}>Products</Link>
-          <Link href="/contact" underline='none' color='#5e5e60' marginRight={6}>Contact</Link>
+          <Link to="/"  style={{textDecoration:'none',color:'#5e5e60' , marginRight:15, marginLeft:6}}>Home</Link>
+          <Link to="/about" style={{textDecoration:'none',color:'#5e5e60' , marginRight:15}}>About Us</Link>
+          <Link to="/products" style={{textDecoration:'none',color:'#5e5e60' , marginRight:15}}>Products</Link>
+          <Link to="/contact" style={{textDecoration:'none',color:'#5e5e60' , marginRight:15}}>Contact</Link>
           </Box>
           <Box className="footer-icon">
         <FacebookIcon color="action"  fontSize='xs' sx={{marginRight:2}} />
