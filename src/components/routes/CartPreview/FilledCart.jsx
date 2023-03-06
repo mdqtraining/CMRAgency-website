@@ -89,7 +89,10 @@ export default function FilledCart() {
       </Table>
     </TableContainer>
      <Box mt={2}>
-    <Button variant='container' href='/checkout' sx={{bgcolor:'#7EC948' , color : '#222', ":hover":{bgcolor:'#29b6f6'}}}>Proceed To Checkout</Button></Box>
+      <Link to='/checkout' style={{textDecoration:'none'}}>
+      <Button variant='container' sx={{bgcolor:'#7EC948' , color : '#222', ":hover":{bgcolor:'#29b6f6'}}}>Proceed To Checkout</Button>
+      </Link>
+    </Box>
     </Box>
           )}
     </Grid>
